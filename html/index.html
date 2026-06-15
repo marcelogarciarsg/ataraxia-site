@@ -1486,6 +1486,15 @@
         return;
       }
 
+      /* Validação de formato de e-mail (form tem novalidate) */
+      var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRe.test(data.email)) {
+        leadForm.email.setAttribute('aria-invalid', 'true');
+        showFeedback('is-err', 'Informe um e-mail válido (ex.: nome@dominio.com.br).');
+        leadForm.email.focus();
+        return;
+      }
+
       var submitBtn = leadForm.querySelector('.btn-submit');
       submitBtn.disabled   = true;
       submitBtn.textContent = 'Enviando\u2026';
@@ -1500,9 +1509,16 @@
         if (res.ok) {
           showFeedback('is-ok', 'Recebido! Nossa equipe entra em contato.');
           leadForm.reset();
-        } else {
-          throw new Error('status ' + res.status);
+          return;
         }
+        /* Erro de valida\u00e7\u00e3o (4xx): mostra a mensagem espec\u00edfica do servidor */
+        if (res.status >= 400 && res.status < 500) {
+          return res.json().then(function (body) {
+            showFeedback('is-err', (body && body.message) ? body.message
+              : 'Verifique os dados e tente novamente.');
+          });
+        }
+        throw new Error('status ' + res.status);
       })
       .catch(function () {
         showFeedback('is-err', 'N\u00e3o foi poss\u00edvel enviar. Tente novamente em instantes.');
