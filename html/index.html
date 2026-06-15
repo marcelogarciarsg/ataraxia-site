@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AtaraxIA Sistemas — Inteligência hiperlocal para o setor público</title>
+  <meta name="description" content="Clipping hiperlocal com IA para prefeituras, câmaras e mandatos. Monitoramento de redes, portais e grupos públicos — entregamos só o que importa para o setor público.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AtaraxIA Sistemas — Inteligência hiperlocal para o setor público">
+  <meta property="og:description" content="Clipping hiperlocal com IA. Monitoramento de redes e portais da sua cidade para prefeituras, câmaras, mandatos e agências.">
+  <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'><rect width='1200' height='630' fill='%234F46E5'/><text x='600' y='345' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='120' fill='white'>AtaraxIA</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234F46E5'/><text x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='13' fill='white'>IA</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --indigo:    #4F46E5;
+      --indigo-dk: #4338CA;
+      --indigo-lt: #EEF2FF;
+      --indigo-ac: #818CF8;
+      --ink:       #0D0D0F;
+      --gray:      #6B7280;
+      --border:    #E5E7EB;
+      --bg:        #FFFFFF;
+      --bg-alt:    #FAFAFA;
+      --green:     #16A34A;
+      --amber:     #D97706;
+      --font:      'Inter', system-ui, Arial, sans-serif;
+      --r:         12px;
+      --r-sm:      8px;
+      --sh:        0 1px 3px rgba(0,0,0,.07), 0 4px 14px rgba(0,0,0,.06);
+      --sh-lg:     0 8px 40px rgba(0,0,0,.13);
+      --max:       1200px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+    .eyebrow {
+      font-size: 11.5px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--indigo); margin-bottom: 14px;
+    }
+    h1 { font-size: clamp(2.1rem, 5vw, 3.75rem); font-weight: 800; line-height: 1.09; letter-spacing: -.03em; text-wrap: balance; }
+    h2 { font-size: clamp(1.55rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.16; letter-spacing: -.025em; text-wrap: balance; }
+    h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.35; }
+    p  { color: #374151; line-height: 1.75; }
+    .sec-hd { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .sec-hd h2 { margin-bottom: 14px; }
+
+    /* ─── BUTTONS ─────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: var(--r-sm);
+      font-family: var(--font); font-size: 14.5px; font-weight: 600;
+      cursor: pointer; transition: all .15s ease;
+      border: none; text-decoration: none; white-space: nowrap;
+    }
+    .btn-primary { background: var(--indigo); color: #fff; }
+    .btn-primary:hover { background: var(--indigo-dk); transform: translateY(-1px); box-shadow: 0 4px 18px rgba(79,70,229,.35); }
+    .btn-outline  { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--indigo); color: var(--indigo); background: var(--indigo-lt); }
+    .btn-white    { background: #fff; color: var(--indigo); font-weight: 700; }
+    .btn-white:hover { background: #f0f0ff; }
+    .btn-lg { padding: 15px 30px; font-size: 15.5px; border-radius: 10px; }
+
+    /* ─── LOGO ───────────────────────────────────────────────── */
+    .logo { font-size: 21px; font-weight: 700; letter-spacing: -.025em; line-height: 1; }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav.site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; gap: 20px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a {
+      padding: 6px 13px; font-size: 14px; font-weight: 500;
+      color: #374151; border-radius: 6px; transition: all .12s;
+    }
+    .nav-links a:hover { color: var(--indigo); background: var(--indigo-lt); }
+    .nav-cta { flex-shrink: 0; }
+    .nav-burger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; background: none; border: none;
+    }
+    .nav-burger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--ink); border-radius: 2px; transition: all .2s;
+    }
+    .nav-mobile-menu {
+      display: none; flex-direction: column; gap: 2px;
+      padding: 10px 24px 20px; border-top: 1px solid var(--border);
+    }
+    .nav-mobile-menu.is-open { display: flex; }
+    .nav-mobile-menu a {
+      padding: 12px 14px; min-height: 44px; box-sizing: border-box;
+      display: flex; align-items: center;
+      font-size: 15px; font-weight: 500;
+      color: var(--ink); border-radius: 8px;
+    }
+    .nav-mobile-menu a:hover { background: var(--indigo-lt); color: var(--indigo); }
+    .nav-mobile-menu .btn { margin-top: 8px; width: fit-content; }
+
+    /* ─── HERO A — centralizado ──────────────────────────────── */
+    .hero-a {
+      min-height: calc(100vh - 64px);
+      display: flex; align-items: center;
+      background: var(--indigo-lt);
+      position: relative; overflow: hidden;
+    }
+    .hero-a::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 65% 75% at 18% 72%, rgba(79,70,229,.14) 0%, transparent 58%),
+        radial-gradient(ellipse 55% 60% at 88% 14%, rgba(129,140,248,.18) 0%, transparent 52%);
+      pointer-events: none;
+    }
+    .hero-a::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(79,70,229,.11) 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 72%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 72%);
+      pointer-events: none;
+    }
+    .hero-a-inner {
+      position: relative; z-index: 1;
+      text-align: center; max-width: 860px;
+      margin: 0 auto; padding: 80px 0;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(79,70,229,.1); border: 1px solid rgba(79,70,229,.22);
+      color: var(--indigo); font-size: 12.5px; font-weight: 600;
+      padding: 6px 16px; border-radius: 40px; margin-bottom: 32px;
+    }
+    .hero-a h1 { color: var(--ink); margin-bottom: 22px; }
+    .hero-sub { font-size: 1.18rem; color: #4B5563; margin-bottom: 44px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── HERO B — split c/ mock ─────────────────────────────── */
+    .hero-b {
+      display: none;
+      min-height: calc(100vh - 64px);
+      align-items: center;
+      background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .hero-b::before {
+      content: ''; position: absolute; right: -80px; top: -80px;
+      width: 640px; height: 640px;
+      background: radial-gradient(circle, rgba(79,70,229,.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-b-wrap {
+      display: grid; grid-template-columns: 1fr 1.05fr;
+      gap: 56px; align-items: center; padding: 80px 0; width: 100%;
+    }
+    .hero-b-text h1 { margin-bottom: 22px; }
+    .hero-b-text .hero-sub { margin-left: 0; margin-bottom: 38px; text-align: left; }
+
+    /* ─── PRODUCT MOCK ───────────────────────────────────────── */
+    .prod-mock {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 18px; overflow: hidden; box-shadow: var(--sh-lg);
+      font-size: 13px;
+    }
+    .mock-bar {
+      background: var(--indigo); color: #fff;
+      padding: 16px 22px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .mock-bar-name { font-weight: 700; font-size: 14px; }
+    .mock-bar-date { font-size: 11.5px; opacity: .9; margin-top: 2px; }
+    .mock-live { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; flex-shrink: 0; }
+    .mock-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 18px; }
+    .mock-sec-hd {
+      font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+      color: var(--gray); padding-bottom: 7px; border-bottom: 1px solid var(--border); margin-bottom: 10px;
+    }
+    .mock-row { display: flex; gap: 9px; align-items: flex-start; }
+    .mock-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); flex-shrink: 0; margin-top: 5px; }
+    .mock-dot.am { background: var(--amber); }
+    .mock-dot.gr { background: var(--green); }
+    .mock-txt { font-size: 12.5px; color: #374151; line-height: 1.45; }
+    .mock-tag {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      padding: 1.5px 8px; border-radius: 10px; margin-left: 4px; vertical-align: middle;
+    }
+    .mock-tag.pos { background: #dcfce7; color: #166534; }
+    .mock-tag.neg { background: #fee2e2; color: #991b1b; }
+    .mock-tag.neu { background: #f3f4f6; color: #4b5563; }
+    .mock-sentiment { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+    .sent-bar { flex: 1; height: 5px; background: #e5e7eb; border-radius: 10px; overflow: hidden; }
+    .sent-fill { height: 100%; width: 78%; background: linear-gradient(to right, #16a34a, #86efac); border-radius: 10px; }
+    .sent-lbl { font-size: 11px; color: var(--gray); font-weight: 500; }
+    /* ─── Capa real: manchete editorial, resumo, card de item ── */
+    .mock-manchete { font-size: 14px; font-weight: 700; color: #1f2937; line-height: 1.34; }
+    .mock-dek { font-size: 12px; color: #6b7280; line-height: 1.45; margin-top: 5px; }
+    .mock-resumo { font-size: 12px; color: #374151; line-height: 1.5; }
+    .mock-resumo + .mock-resumo { margin-top: 6px; }
+    .mock-resumo b { color: var(--indigo); font-weight: 600; }
+    .mock-card { border: 1px solid var(--border); border-radius: 12px; padding: 12px 13px; }
+    .mock-card-hd { font-size: 12.5px; font-weight: 600; color: #1f2937; line-height: 1.35; }
+    .mock-meta { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0 2px; }
+    .mock-pill { font-size: 9.5px; font-weight: 600; padding: 2px 8px; border-radius: 8px; background: #eef2ff; color: #4338ca; white-space: nowrap; }
+    .mock-line { font-size: 11.5px; color: #4b5563; line-height: 1.42; margin-top: 6px; }
+    .mock-line b { color: #374151; font-weight: 600; }
+    .mock-radar { font-size: 11px; color: var(--gray); margin-top: 5px; }
+    .mock-secs { display: flex; flex-wrap: wrap; gap: 5px; }
+    .mock-sec-chip { font-size: 10px; font-weight: 600; padding: 2.5px 9px; border-radius: 20px; background: #f3f4f6; color: #4b5563; }
+
+    /* ─── HERO SWITCHER ──────────────────────────────────────── */
+    .hero-switcher {
+      position: fixed; bottom: 20px; right: 20px; z-index: 200;
+      background: #fff; border: 1px solid var(--border); border-radius: 40px;
+      padding: 4px 4px 4px 12px; box-shadow: var(--sh-lg);
+      display: flex; align-items: center; gap: 4px;
+    }
+    .hs-lbl { font-size: 10.5px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: .08em; padding-right: 4px; }
+    .hs-btn {
+      padding: 6px 14px; border-radius: 36px; border: none; cursor: pointer;
+      font-family: var(--font); font-size: 12.5px; font-weight: 600;
+      background: transparent; color: var(--gray); transition: all .15s;
+    }
+    .hs-btn.is-active { background: var(--indigo); color: #fff; }
+
+    /* ─── § PROBLEMA ─────────────────────────────────────────── */
+    .sec-problema { background: var(--ink); }
+    .sec-problema .eyebrow { color: var(--indigo-ac); }
+    .sec-problema h2 { color: #fff; }
+    .sec-problema p { color: #d1d5db; }
+    .prob-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .prob-quote {
+      border-left: 3px solid var(--indigo-ac); padding-left: 22px;
+      font-style: italic; font-size: 1.1rem; color: #f3f4f6; line-height: 1.65;
+      margin-top: 28px;
+    }
+    .prob-right p + p { margin-top: 18px; }
+    .prob-right p { font-size: 1.02rem; }
+    .prob-right strong { color: #fff; }
+
+    /* ─── § DIFERENCIAIS ─────────────────────────────────────── */
+    .sec-dif { background: var(--indigo-lt); }
+    .cards-2x2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--r); padding: 30px; box-shadow: var(--sh); transition: all .2s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--sh-lg); }
+    .card-icon {
+      width: 44px; height: 44px; background: var(--indigo-lt); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--indigo); margin-bottom: 18px;
+    }
+    .card h3 { margin-bottom: 10px; }
+
+    /* ─── § O QUE ENTREGA ────────────────────────────────────── */
+    .sec-produto { background: var(--bg); }
+    .modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 28px; }
+    .module-card {
+      background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 32px 28px; position: relative; overflow: hidden;
+    }
+    .module-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--indigo);
+    }
+    .mod-num { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--indigo); margin-bottom: 10px; }
+    .module-card h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    .mod-tagline { font-size: 13px; color: var(--indigo); font-weight: 600; margin-bottom: 14px; }
+    .demanda-strip {
+      background: var(--ink); border-radius: var(--r); padding: 28px 32px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .demanda-strip h3 { color: #fff; margin-bottom: 5px; }
+    .demanda-strip p { color: #9ca3af; font-size: 14px; }
+    .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .chip {
+      background: rgba(255,255,255,.1); color: #e5e7eb;
+      border: 1px solid rgba(255,255,255,.15); padding: 5px 14px;
+      border-radius: 20px; font-size: 13px; font-weight: 500;
+    }
+
+    /* ─── § COMO FUNCIONA ────────────────────────────────────── */
+    .sec-como { background: var(--bg-alt); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--r); padding: 32px;
+    }
+    .step-num {
+      width: 46px; height: 46px; background: var(--indigo); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 800; margin-bottom: 20px;
+    }
+    .step-card h3 { margin-bottom: 10px; }
+
+    /* ─── § PARA QUEM ────────────────────────────────────────── */
+    .sec-paraquem { background: var(--bg); }
+    .pq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .pq-card {
+      background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 28px 30px;
+      display: flex; gap: 20px; align-items: flex-start; transition: all .2s;
+    }
+    .pq-card:hover { border-color: var(--indigo); background: #fff; box-shadow: var(--sh); }
+    .pq-icon {
+      width: 46px; height: 46px; background: var(--indigo-lt); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--indigo); flex-shrink: 0;
+    }
+    .pq-card h3 { margin-bottom: 8px; }
+    .pq-badge {
+      display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 700;
+      letter-spacing: .07em; text-transform: uppercase;
+      background: var(--indigo-lt); color: var(--indigo); padding: 3px 10px; border-radius: 6px;
+    }
+
+    /* ─── § SOB MEDIDA ───────────────────────────────────────── */
+    .sec-sob { background: var(--indigo-lt); }
+    .edicoes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 28px; }
+    .edicao-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--r); padding: 36px; box-shadow: var(--sh);
+    }
+    .edicao-lbl { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--indigo); margin-bottom: 6px; }
+    .edicao-card h3 { font-size: 1.45rem; margin-bottom: 12px; }
+    .feat-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #374151; }
+    .feat-list li svg { flex-shrink: 0; margin-top: 2px; }
+    .impl-bar {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--r);
+      display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden;
+    }
+    .impl-step { padding: 26px 22px; border-right: 1px solid var(--border); }
+    .impl-step:last-child { border-right: none; }
+    .impl-n { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--indigo); margin-bottom: 6px; }
+    .impl-step h3 { font-size: .95rem; margin-bottom: 6px; }
+    .impl-step p { font-size: 13px; color: var(--gray); }
+
+    /* ─── § CONFIANÇA ────────────────────────────────────────── */
+    .sec-conf { background: var(--bg); }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .trust-item {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 28px 18px; border: 1px solid var(--border); border-radius: var(--r);
+      gap: 13px; transition: all .2s;
+    }
+    .trust-item:hover { box-shadow: var(--sh); border-color: var(--indigo-ac); }
+    .trust-item.is-featured { border-color: var(--indigo); background: var(--indigo-lt); }
+    .trust-icon {
+      width: 46px; height: 46px; border-radius: 12px; background: var(--indigo-lt);
+      display: flex; align-items: center; justify-content: center; color: var(--indigo);
+    }
+    .trust-item.is-featured .trust-icon { background: var(--indigo); color: #fff; }
+    .trust-item h3 { font-size: 13.5px; }
+    .trust-item p { font-size: 12.5px; color: var(--gray); line-height: 1.55; }
+
+    /* ─── § FAQ ──────────────────────────────────────────────── */
+    .sec-faq { background: var(--bg-alt); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 2px; background: none; border: none; cursor: pointer;
+      text-align: left; font-family: var(--font); font-size: 15px; font-weight: 600;
+      color: var(--ink); gap: 16px; transition: color .15s;
+    }
+    .faq-q:hover { color: var(--indigo); }
+    .faq-chevron {
+      width: 20px; height: 20px; flex-shrink: 0; color: var(--gray);
+      transition: transform .22s ease;
+    }
+    .faq-item.is-open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none; padding: 0 2px 20px;
+      color: #4B5563; font-size: 15px; line-height: 1.75;
+    }
+    .faq-item.is-open .faq-a { display: block; }
+
+    /* ─── § CTA FINAL ────────────────────────────────────────── */
+    .sec-cta { background: var(--indigo); }
+    .cta-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
+    .cta-text h2 { color: #fff; margin-bottom: 18px; }
+    .cta-text p { color: rgba(255,255,255,.78); }
+    .cta-eyebrow { color: rgba(255,255,255,.85); }
+    .cta-notes { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+    .cta-note { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,.82); }
+
+    /* ─── FORMULÁRIO ─────────────────────────────────────────── */
+    .contact-form {
+      background: #fff; border-radius: var(--r);
+      padding: 36px; box-shadow: var(--sh-lg);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    label { font-size: 13px; font-weight: 600; color: var(--ink); }
+    input, select, textarea {
+      font-family: var(--font); font-size: 14.5px; color: var(--ink);
+      background: var(--bg-alt); border: 1.5px solid var(--border);
+      border-radius: var(--r-sm); padding: 10px 14px;
+      outline: none; transition: border-color .15s, background .15s; width: 100%;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--indigo); background: #fff; }
+    textarea { resize: vertical; min-height: 84px; }
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .hp-wrap { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
+    .btn-submit { width: 100%; justify-content: center; padding: 14px; font-size: 15px; margin-top: 4px; border-radius: 9px; }
+    .form-feedback {
+      text-align: center; padding: 12px; border-radius: 8px;
+      font-size: 13.5px; font-weight: 500; margin-top: 14px; display: none;
+    }
+    .form-feedback.is-ok  { background: #dcfce7; color: #166534; display: block; }
+    .form-feedback.is-err { background: #fee2e2; color: #991b1b; display: block; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer { background: var(--ink); padding: 60px 0 32px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px;
+      padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.1); margin-bottom: 28px;
+    }
+    .foot-brand .logo { font-size: 22px; }
+    .foot-tagline { color: #9ca3af; font-size: 14px; margin-top: 8px; }
+    .foot-email {
+      display: block; color: var(--indigo-ac); font-size: 14px; margin-top: 16px;
+      transition: color .12s;
+    }
+    .foot-email:hover { color: #fff; }
+    .foot-col h4 { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #9ca3af; margin-bottom: 16px; }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .foot-col ul a { font-size: 14px; color: #d1d5db; transition: color .12s; }
+    .foot-col ul a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 13px; color: #9ca3af; }
+    .footer-bottom a { color: #a5b4fc; font-size: 13px; text-decoration: underline; }
+    .footer-bottom a:hover { color: #fff; }
+
+    /* ─── v2: HERO SPLIT ─────────────────────────────────────── */
+    .hero-a-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.02fr; gap: 52px; align-items: center; padding: 72px 0; }
+    .hero-a-grid .hero-badge { margin-bottom: 24px; }
+    .hero-a-grid h1 { text-align: left; }
+    .hero-a-grid .hero-sub { text-align: left; margin-left: 0; margin-right: 0; max-width: 470px; }
+    .hero-a-grid .hero-actions { justify-content: flex-start; }
+
+    /* ─── v2: STRIP DE COBERTURA ─────────────────────────────── */
+    .sec-cobertura { padding: 28px 0; background: var(--bg); border-bottom: 1px solid var(--border); }
+    .cob-inner { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .cob-lbl { font-size: 12.5px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: .06em; }
+    .cob-chip { display: inline-flex; align-items: center; gap: 7px; background: var(--indigo-lt); color: var(--indigo); border: 1px solid #dfe3ff; padding: 7px 15px; border-radius: 30px; font-size: 13.5px; font-weight: 600; }
+
+    /* ─── v2: VANTAGENS POR PERFIL ───────────────────────────── */
+    .sec-vantagens { background: var(--bg-alt); }
+    .vant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .vant-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 34px; box-shadow: var(--sh); }
+    .vant-card h3 { font-size: 1.4rem; margin: 6px 0 18px; }
+    .vant-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .vant-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: #374151; line-height: 1.5; }
+    .vant-list li svg { flex-shrink: 0; margin-top: 3px; }
+
+    /* ─── v2: FAIXA LGPD (pilar) ─────────────────────────────── */
+    .lgpd-band { background: var(--ink); border-radius: 16px; padding: 30px 34px; margin-bottom: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .lgpd-item { display: flex; gap: 13px; align-items: flex-start; }
+    .lgpd-item svg { flex-shrink: 0; color: var(--indigo-ac); margin-top: 2px; }
+    .lgpd-item h3 { color: #fff; font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
+    .lgpd-item p { color: #9ca3af; font-size: 13px; line-height: 1.5; }
+
+    @media (max-width: 880px) {
+      .hero-a-grid { grid-template-columns: 1fr; gap: 36px; padding: 52px 0; }
+      .hero-a-grid h1, .hero-a-grid .hero-sub { text-align: center; margin-left: auto; margin-right: auto; }
+      .hero-a-grid .hero-actions { justify-content: center; }
+      .hero-a-grid .hero-badge { margin-left: auto; margin-right: auto; }
+      .vant-grid { grid-template-columns: 1fr; }
+      .lgpd-band { grid-template-columns: 1fr; gap: 18px; }
+      .cob-lbl { display: block; width: 100%; text-align: center; }
+    }
+
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .trust-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-burger { display: flex; }
+      .hero-a-inner { padding: 60px 0; }
+      .hero-sub { font-size: 1.05rem; }
+      .prob-grid,
+      .cards-2x2,
+      .modules-grid,
+      .steps-grid,
+      .pq-grid,
+      .edicoes-grid,
+      .cta-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .impl-bar { grid-template-columns: 1fr 1fr; }
+      .impl-step:nth-child(2) { border-right: none; }
+      .impl-step:nth-child(3),
+      .impl-step:nth-child(4) { border-top: 1px solid var(--border); }
+      .impl-step:nth-child(4) { border-right: none; }
+      .hero-b-wrap { grid-template-columns: 1fr; padding: 60px 0; }
+      .form-row { grid-template-columns: 1fr; }
+      .demanda-strip { flex-direction: column; align-items: flex-start; }
+      .hero-switcher { bottom: 12px; right: 12px; }
+    }
+    @media (max-width: 480px) {
+      .trust-grid { grid-template-columns: 1fr; }
+      .impl-bar { grid-template-columns: 1fr; }
+      .impl-step { border-right: none !important; border-top: 1px solid var(--border); }
+      .impl-step:first-child { border-top: none; }
+    }
+    /* ═══ PARA QUEM — abas de persona ═══ */
+    .pq-tabnav { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:6px 0 34px; }
+    .pq-tabbtn { display:inline-flex; align-items:center; gap:9px; appearance:none; background:#fff; border:1px solid var(--border); border-radius:14px; cursor:pointer; font:inherit; font-weight:600; font-size:.96rem; color:#374151; padding:13px 20px; transition:all .15s ease; }
+    .pq-tabbtn .pq-ic { display:flex; color:var(--indigo); transition:color .15s; }
+    .pq-tabbtn:hover { border-color:var(--indigo); color:var(--indigo); box-shadow:0 4px 14px rgba(79,70,229,.10); transform:translateY(-1px); }
+    .pq-tabbtn.is-active { background:var(--indigo); border-color:var(--indigo); color:#fff; box-shadow:0 6px 18px rgba(79,70,229,.25); }
+    .pq-tabbtn.is-active .pq-ic { color:#fff; }
+    .pq-panel { display:none; }
+    .pq-panel.is-active { display:block; animation:pqfade .25s ease; }
+    @keyframes pqfade { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:none} }
+    .pq-panel-grid { display:grid; grid-template-columns:1fr 1.05fr; gap:40px; align-items:start; }
+    .pq-panel-grid h3 { font-size:1.5rem; line-height:1.2; margin:0 0 14px; letter-spacing:-.01em; }
+    .pq-who { color:#4b5563; font-size:1rem; line-height:1.55; margin:0 0 10px; }
+    .pq-pain { color:#6b7280; font-size:.97rem; line-height:1.55; margin:0 0 22px; }
+    .pq-uselist { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:13px; }
+    .pq-uselist li { display:flex; gap:10px; align-items:flex-start; font-size:.97rem; color:#374151; line-height:1.45; }
+    .pq-uselist svg { flex-shrink:0; margin-top:2px; }
+    .pq-foot { margin-top:28px; text-align:center; color:#6b7280; font-size:.92rem; }
+
+    /* ═══ PORTAL — seção escura + mockup do dashboard ═══ */
+    .sec-portal { background:#0D0D0F; color:#fff; padding:96px 0; }
+    .sec-portal .eyebrow { color:#a5b4fc; }
+    .sec-portal h2 { color:#fff; }
+    .portal-grid { display:grid; grid-template-columns:1fr 1.12fr; gap:48px; align-items:center; margin-top:10px; }
+    .portal-lead { color:#c7c9d1; font-size:1.05rem; line-height:1.6; margin:0 0 28px; }
+    .portal-feats { list-style:none; margin:0; padding:0; display:grid; gap:17px; }
+    .portal-feat { display:flex; gap:13px; align-items:flex-start; }
+    .portal-feat .pf-ic { flex-shrink:0; width:34px; height:34px; border-radius:9px; background:rgba(99,102,241,.18); display:flex; align-items:center; justify-content:center; color:#a5b4fc; }
+    .portal-feat h3 { margin:0 0 3px; font-size:.98rem; color:#fff; }
+    .portal-feat p { margin:0; font-size:.9rem; color:#9ca3af; line-height:1.45; }
+    .portal-soon { display:inline-block; margin-top:26px; font-size:.82rem; color:#a5b4fc; }
+    /* dashboard mock */
+    .dash { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.45); color:#111; }
+    .dash-top { display:flex; align-items:center; justify-content:space-between; padding:13px 17px; border-bottom:1px solid #eef0f3; }
+    .dash-ttl { font-weight:700; font-size:.9rem; }
+    .dash-ttl span { color:#6b7280; font-weight:500; }
+    .dash-filters { display:flex; gap:5px; }
+    .dash-chip { font-size:10px; font-weight:600; color:#4b5563; background:#f4f4f5; padding:4px 10px; border-radius:999px; }
+    .dash-chip.on { background:#eef2ff; color:#4338ca; }
+    .dash-body { padding:15px 17px; display:flex; flex-direction:column; gap:13px; }
+    .dash-kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+    .dash-kpi { border:1px solid #eef0f3; border-radius:10px; padding:8px 10px; }
+    .dash-kpi .k-l { font-size:8px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#6b7280; }
+    .dash-kpi .k-v { font-size:16px; font-weight:700; color:#111; margin-top:2px; }
+    .dash-kpi .k-v.g { color:#16a34a; }
+    .dash-charts { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+    .dash-card { border:1px solid #eef0f3; border-radius:10px; padding:10px 12px; }
+    .dash-card .c-t { font-size:10.5px; font-weight:600; color:#374151; margin-bottom:7px; }
+    .dash-legend { display:flex; gap:9px; flex-wrap:wrap; margin-top:7px; }
+    .dash-legend span { font-size:9px; color:#6b7280; display:flex; align-items:center; gap:4px; }
+    .dash-legend i { width:7px; height:7px; border-radius:50%; display:inline-block; }
+    .dash-items { display:flex; flex-direction:column; gap:7px; }
+    .dash-it { display:flex; gap:9px; align-items:center; border:1px solid #eef0f3; border-radius:10px; padding:7px 9px; }
+    .dash-th { width:32px; height:32px; border-radius:7px; flex-shrink:0; background:linear-gradient(135deg,#e0e7ff,#c7d2fe); }
+    .dash-it .i-t { font-size:11px; font-weight:600; color:#1f2937; line-height:1.25; }
+    .dash-it .i-m { display:flex; gap:5px; margin-top:4px; align-items:center; }
+    .dash-pill { font-size:8px; font-weight:600; padding:1.5px 6px; border-radius:999px; }
+    .dash-pill.pos { background:#dcfce7; color:#166534; }
+    .dash-pill.neg { background:#fee2e2; color:#991b1b; }
+    .dash-pill.src { background:#f3f4f6; color:#4b5563; }
+    @media (max-width: 880px) {
+      .pq-panel-grid { grid-template-columns:1fr; gap:24px; }
+      .portal-grid { grid-template-columns:1fr; gap:34px; }
+      .dash-kpis { grid-template-columns:repeat(2,1fr); }
+    }
+    /* ─── Acessibilidade (WCAG 2.1 AA / eMAG) ─── */
+    .skip-link { position:absolute; left:-9999px; top:0; z-index:1000; background:var(--indigo); color:#fff; padding:10px 18px; border-radius:0 0 8px 0; font-weight:600; }
+    .skip-link:focus { left:0; }
+    :focus-visible { outline:2px solid var(--indigo); outline-offset:2px; border-radius:3px; }
+    .sec-portal :focus-visible, .sec-problema :focus-visible, .sec-cta :focus-visible { outline-color:#fff; }
+    .trust-item.is-featured p { color:#4B5563; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      .pq-panel.is-active { animation:none; }
+      *, *::before, *::after { transition-duration:.01ms !important; animation-duration:.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ══════════════════════ NAV ══════════════════════════════ -->
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="logo" aria-label="AtaraxIA — Página inicial">
+          <span style="color:#0D0D0F">Atarax</span><span style="color:#4F46E5">IA</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#produto">Produto</a></li>
+          <li><a href="#portal">Portal</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#para-quem">Para quem</a></li>
+          <li><a href="#confianca">Confiança</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#contato" class="btn btn-primary nav-cta">Pedir apresentação</a>
+        <button class="nav-burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile-menu" id="navMobile">
+      <a href="#produto">Produto</a>
+      <a href="#portal">Portal</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#para-quem">Para quem</a>
+      <a href="#confianca">Confiança</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
+    </div>
+  </nav>
+
+  <main id="conteudo">
+  <!-- ══════════════════ HERO A — Centralizado ════════════════ -->
+  <section id="hero" class="hero-a" data-screen-label="Hero A — Centralizado">
+    <div class="container">
+      <div class="hero-a-grid">
+        <div class="hero-a-text">
+        <div class="hero-badge" aria-label="Categoria">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M6 3.5V6.5L8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Monitoramento hiperlocal &middot; Setor público
+        </div>
+        <h1>Monitoramento hiperlocal para quem governa, faz campanha e se comunica.</h1>
+        <p class="hero-sub">Tudo que falam da sua cidade — filtrado pelo que importa e entregue no horário que você escolher.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary btn-lg">Pedir apresentação</a>
+          <a href="#produto" class="btn btn-outline btn-lg">Conhecer o produto</a>
+        </div>
+        <p style="font-size:.86rem;color:#4B5563;margin-top:20px;">Monitoramento ativo em municípios do Rio Grande do Sul.</p>
+        </div>
+        <div class="prod-mock" role="img" aria-label="Prévia da Capa Executiva — briefing diário da AtaraxIA">
+          <div class="mock-bar">
+            <div>
+              <div class="mock-bar-name">Capa Executiva</div>
+              <div class="mock-bar-date">Qua, 11 Jun 2026 &nbsp;·&nbsp; Cachoeirinha, RS</div>
+            </div>
+            <div class="mock-live" title="Serviço ativo"></div>
+          </div>
+          <div class="mock-body">
+            <div>
+              <div class="mock-sec-hd">⚡ Manchete do dia</div>
+              <div class="mock-manchete">Reajuste na tarifa de água gera reação nas redes; Prefeitura cobra a concessionária.</div>
+              <div class="mock-dek">O aumento previsto para julho concentra as menções do dia, enquanto a gestão exige solução para o desabastecimento.</div>
+            </div>
+            <div>
+              <div class="mock-sec-hd">📋 O resumo do dia</div>
+              <div class="mock-resumo"><b>Na imprensa:</b> portais regionais repercutem as cobranças à concessionária e a troca no secretariado.</div>
+              <div class="mock-resumo"><b>Nas redes:</b> a indignação com o reajuste domina o volume de menções.</div>
+            </div>
+            <div>
+              <div class="mock-sec-hd">🔔 Alertas de serviços públicos</div>
+              <div class="mock-card">
+                <div class="mock-card-hd">Concessionária anuncia reajuste de 5,76% na conta de água</div>
+                <div class="mock-meta">
+                  <span class="mock-pill">📍 Toda a cidade</span>
+                  <span class="mock-pill">🏛️ Meio Ambiente</span>
+                </div>
+                <div class="mock-line"><b>🗣️ Voz do Povo:</b> moradores reagem com forte indignação ao novo valor.</div>
+                <div class="mock-radar">🎯 Radar IA · 150 curtidas · 160 comentários &nbsp;—&nbsp; Fonte: portal regional</div>
+              </div>
+            </div>
+            <div>
+              <div class="mock-sec-hd">🏛️ Secretarias impactadas</div>
+              <div class="mock-secs">
+                <span class="mock-sec-chip">Meio Ambiente</span>
+                <span class="mock-sec-chip">Mobilidade</span>
+                <span class="mock-sec-chip">Saúde</span>
+                <span class="mock-sec-chip">Obras</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 2 — O PROBLEMA ═══════════════════════ -->
+  <!-- ══════════════════ v2 — STRIP DE COBERTURA ════════════ -->
+  <section class="sec-cobertura" aria-label="O que monitoramos">
+    <div class="container">
+      <div class="cob-inner">
+        <span class="cob-lbl">Todo dia, na sua cidade:</span>
+        <span class="cob-chip">📰 Notícias</span>
+        <span class="cob-chip">📸 Instagram</span>
+        <span class="cob-chip">👥 Facebook</span>
+        <span class="cob-chip">🏘️ Grupos de bairro</span>
+        <span class="cob-chip">▶️ YouTube</span>
+        <span class="cob-chip">✍️ Colunistas</span>
+        <span class="cob-chip">🌐 Portais regionais</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-problema" id="problema" data-screen-label="O Problema">
+    <div class="container">
+      <div class="prob-grid">
+        <div>
+          <div class="eyebrow">O problema</div>
+          <h2>Uma crise não nasce na capa do jornal.</h2>
+          <blockquote class="prob-quote">
+            "Nasce num grupo de bairro, num comentário, num vídeo gravado na esquina. Quando chega à imprensa, já é tarde."
+          </blockquote>
+        </div>
+        <div class="prob-right">
+          <p>O gestor é pego de surpresa. O candidato reage atrasado. A assessoria apaga incêndio em vez de antecipar.</p>
+          <p>E o problema não é falta de informação — é excesso. São centenas de posts, perfis e portais por dia, um volume impossível de acompanhar manualmente.</p>
+          <p>As ferramentas que existem ficaram no passado analógico, ou só enxergam a superfície nacional — ignorando justamente onde a opinião se forma: <strong>o local.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 3 — DIFERENCIAIS ═════════════════════ -->
+  <section class="sec-dif" id="diferenciais" data-screen-label="Diferenciais">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">O que nos torna diferentes</div>
+        <h2>A sua cidade, entendida por dentro.</h2>
+      </div>
+      <div class="cards-2x2">
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor" opacity=".18"/><path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.7" fill="none"/><circle cx="11" cy="9" r="2.5" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+          </div>
+          <h3>Monitoramos o bairro, não a marca nacional.</h3>
+          <p>Não monitoramos "a marca no Brasil". Monitoramos a sua cidade por dentro: o bairro, a associação de moradores, o colunista local, o podcast e o portal regional. E não ficamos só nas fontes que você cadastra: também varremos as redes por menção, localização e palavra-chave.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M7 11h8M7 7.5h5M7 14.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Editorial sob medida.</h3>
+          <p>A mesma cidade gera notícias diferentes para clientes diferentes. Nossa IA aprende o que importa para você e fala na sua linguagem — a de uma prefeitura não é a de um mandato. Você recebe sinal, não ruído.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 11.5l2.5 2.5 4-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>A Voz do Povo, lida por inteiro.</h3>
+          <p>Transcrevemos áudios e vídeos e lemos o texto dentro de imagens e cartazes, medimos o sentimento e o peso real do engajamento. E quando o post comemora mas os comentários reclamam, viramos o sinal: vira alerta, não elogio.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 17.5l4-4.5 3.5 3 4-5.5 4.5 7H3z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Qualidade, não volume.</h3>
+          <p>Muitas ferramentas se orgulham de monitorar “um milhão de fontes”. A AtaraxIA se mede por relevância: as menções que realmente impactam a sua cidade. Publicidade, conteúdo irrelevante e notícias nacionais sem conexão local são descartados antes de chegarem até você.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M11 6.5V11l3 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Você nunca recebe a mesma notícia duas vezes.</h3>
+          <p>Cada manchete que chega à sua mesa é nova. Nada de item repetido nem de notícia já vista voltando — só o que é novo na sua cidade.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="7" cy="8" r="3" stroke="currentColor" stroke-width="1.7"/><circle cx="15" cy="8" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M2.5 18c0-2 1.6-3.6 3.6-3.6S9.7 16 9.7 18M12.3 18c0-2 1.6-3.6 3.6-3.6S19.5 16 19.5 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Sem bolha.</h3>
+          <p>Mapeamos aliados e oposição. Você não escuta só quem te aplaude — ouve quem te critica antes de o problema crescer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 4 — O QUE ENTREGA ════════════════════ -->
+  <section class="sec-produto" id="produto" data-screen-label="O que entrega">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">O que a AtaraxIA entrega</div>
+        <h2>Três módulos, uma leitura completa da sua cidade.</h2>
+        <p style="color:#6B7280;font-size:1.02rem;margin-top:8px;">O que a sua assessoria garimparia em dezenas de grupos, portais e perfis — lido, filtrado e resumido numa página só.</p>
+      </div>
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="mod-num">Módulo 01</div>
+          <h3>Radar</h3>
+          <p class="mod-tagline">o seu clipping hiperlocal</p>
+          <p>Varre notícias, Instagram, Facebook e seus grupos públicos de bairro, YouTube, colunistas e portais da sua cidade — e entrega só o que passou pelo filtro editorial. Cada item vem com contexto, sentimento e relevância.</p>
+        </div>
+        <div class="module-card">
+          <div class="mod-num">Módulo 02</div>
+          <h3>A Capa Executiva</h3>
+          <p class="mod-tagline">o briefing que a liderança lê antes do café</p>
+          <p>Por cima do clipping, um briefing que se lê em 5 minutos: a manchete do dia, os alertas, as entregas da gestão, a movimentação política e a Voz do Povo. O panorama que a liderança precisa.</p>
+        </div>
+        <div class="module-card">
+          <div class="mod-num">Módulo 03</div>
+          <h3>O Portal</h3>
+          <p class="mod-tagline">o seu acervo, pesquisável por significado</p>
+          <p>Uma área para consultar todo o histórico — por tema, período, bairro ou nome — com busca por significado, não só palavra exata. Tudo o que já passou pela sua cidade, a um clique. <a href="#portal" style="color:var(--indigo);font-weight:600;text-decoration:none;">Ver o Portal →</a></p>
+        </div>
+      </div>
+      <div class="demanda-strip">
+        <div>
+          <h3>Serviços sob demanda</h3>
+          <p>Expanda conforme a necessidade.</p>
+          <div class="chips">
+            <span class="chip">Alertas de crise</span>
+            <span class="chip">Monitoramento de hora em hora</span>
+            <span class="chip">No horário que você quiser</span>
+          </div>
+        </div>
+        <a href="#contato" class="btn btn-white btn-lg">Pedir apresentação</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ v3 — PORTAL (acervo navegável) ═══════ -->
+  <section class="sec-portal" id="portal" data-screen-label="O Portal">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">O Portal</div>
+        <h2>Toda a sua cidade, num lugar só.</h2>
+      </div>
+      <div class="portal-grid">
+        <div>
+          <p class="portal-lead">O Radar e a Capa chegam todo dia no seu e-mail. O Portal guarda tudo: uma área onde você consulta o histórico da sua cidade quando quiser — com uma busca que entende o que você quer dizer, não só a palavra que você digitou.</p>
+          <ul class="portal-feats">
+            <li class="portal-feat">
+              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <div><h3>Histórico consolidado</h3><p>A semana — ou o mês — inteiro da sua cidade. Não só o e-mail de hoje.</p></div>
+            </li>
+            <li class="portal-feat">
+              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <div><h3>Busca por significado</h3><p>Procure por ideia, não por termo exato: "saúde" traz tudo que é de saúde, mesmo sem a palavra.</p></div>
+            </li>
+            <li class="portal-feat">
+              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.7 2 4 4.7 4 8c0 4 6 10 6 10s6-6 6-10c0-3.3-2.7-6-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.6"/></svg></span>
+              <div><h3>Filtre por bairro, nome ou fonte</h3><p>Veja o que falaram de um bairro, de uma pessoa ou de uma fonte específica.</p></div>
+            </li>
+            <li class="portal-feat">
+              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M3 16V9M8 16V4M13 16v-5M18 16V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <div><h3>Dashboard com gráficos</h3><p>O humor da cidade e os temas que dominam, no período que você escolher.</p></div>
+            </li>
+            <li class="portal-feat">
+              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <div><h3>Transparência total</h3><p>Veja exatamente como o seu monitoramento está configurado: fontes, cidades e critérios.</p></div>
+            </li>
+          </ul>
+          <span class="portal-soon">Tudo o que já passou pela sua cidade, sempre a um clique — e cada vez mais inteligente.</span>
+        </div>
+        <div class="dash" role="img" aria-label="Prévia do Portal AtaraxIA — painel do cliente">
+          <div class="dash-top">
+            <div class="dash-ttl">Portal AtaraxIA <span>&middot; Cachoeirinha, RS</span></div>
+            <div class="dash-filters">
+              <span class="dash-chip">Hoje</span>
+              <span class="dash-chip on">7 dias</span>
+              <span class="dash-chip">30 dias</span>
+            </div>
+          </div>
+          <div class="dash-body">
+            <div class="dash-kpis">
+              <div class="dash-kpi"><div class="k-l">Itens</div><div class="k-v">312</div></div>
+              <div class="dash-kpi"><div class="k-l">Aprovados</div><div class="k-v g">68%</div></div>
+              <div class="dash-kpi"><div class="k-l">Fontes</div><div class="k-v">47</div></div>
+              <div class="dash-kpi"><div class="k-l">Alertas</div><div class="k-v">3</div></div>
+            </div>
+            <div class="dash-charts">
+              <div class="dash-card">
+                <div class="c-t">Sentimento &middot; 7 dias</div>
+                <svg viewBox="0 0 70 70" width="100%" height="64" role="img" aria-label="Pizza de sentimento">
+                  <g transform="rotate(-90 35 35)" fill="none" stroke-width="10">
+                    <circle cx="35" cy="35" r="22" stroke="#16a34a" stroke-dasharray="82.9 138.2" stroke-dashoffset="0"/>
+                    <circle cx="35" cy="35" r="22" stroke="#dc2626" stroke-dasharray="34.5 138.2" stroke-dashoffset="-82.9"/>
+                    <circle cx="35" cy="35" r="22" stroke="#9ca3af" stroke-dasharray="20.7 138.2" stroke-dashoffset="-117.4"/>
+                  </g>
+                </svg>
+                <div class="dash-legend"><span><i style="background:#16a34a"></i>Positivo</span><span><i style="background:#dc2626"></i>Negativo</span><span><i style="background:#9ca3af"></i>Neutro</span></div>
+              </div>
+              <div class="dash-card">
+                <div class="c-t">Volume por dia</div>
+                <svg viewBox="0 0 140 56" width="100%" height="64" role="img" aria-label="Volume de itens por dia">
+                  <g fill="#c7d2fe">
+                    <rect x="6" y="30" width="11" height="22" rx="2"/>
+                    <rect x="25" y="22" width="11" height="30" rx="2"/>
+                    <rect x="44" y="34" width="11" height="18" rx="2"/>
+                    <rect x="63" y="14" width="11" height="38" rx="2" fill="#818cf8"/>
+                    <rect x="82" y="26" width="11" height="26" rx="2"/>
+                    <rect x="101" y="10" width="11" height="42" rx="2" fill="#818cf8"/>
+                    <rect x="120" y="20" width="11" height="32" rx="2"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="dash-items">
+              <div class="dash-it">
+                <div class="dash-th"></div>
+                <div><div class="i-t">Reajuste na tarifa de água repercute nas redes</div><div class="i-m"><span class="dash-pill neg">negativo</span><span class="dash-pill src">Portal regional</span></div></div>
+              </div>
+              <div class="dash-it">
+                <div class="dash-th"></div>
+                <div><div class="i-t">Nova praça do Bairro dos Lagos é elogiada pelos moradores</div><div class="i-m"><span class="dash-pill pos">positivo</span><span class="dash-pill src">Instagram</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 5 — COMO FUNCIONA ════════════════════ -->
+  <section class="sec-como" id="como-funciona" data-screen-label="Como funciona">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">Como funciona</div>
+        <h2>Do mapa da cidade à sua caixa de entrada.</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num" aria-label="Passo 1">1</div>
+          <h3>Configuramos a sua cidade.</h3>
+          <p>Mapeamos as fontes que importam e calibramos o que é notícia para o seu perfil. No ar em poucos dias, sem você instalar nada.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num" aria-label="Passo 2">2</div>
+          <h3>A IA monitora e filtra.</h3>
+          <p>Todos os dias varre as fontes — e as redes além delas —, lê texto, áudio, vídeo e comentários, e separa só o relevante.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num" aria-label="Passo 3">3</div>
+          <h3>Você recebe pronto.</h3>
+          <p>Radar e Capa Executiva chegam no e-mail, no horário que escolher — e tudo fica no Portal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 6 — PARA QUEM ════════════════════════ -->
+  <section class="sec-paraquem" id="para-quem" data-screen-label="Para quem">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">Para quem</div>
+        <h2>Quem usa a AtaraxIA todo dia.</h2>
+        <p style="color:#6B7280;font-size:1.02rem;margin-top:8px;">A AtaraxIA atende quem cuida da reputação pública — na gestão, na disputa ou na agência. Veja o que muda para o seu caso:</p>
+      </div>
+      <div class="pq-tabs">
+        <div class="pq-tabnav" role="tablist" aria-label="Selecione o seu perfil">
+          <button class="pq-tabbtn is-active" data-pq="com" role="tab" aria-selected="true"><span class="pq-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 8v4l9 4V4L3 8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12.5 6.5c1.6.5 2.5 1.7 2.5 3.5s-.9 3-2.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>Comunicação</button>
+          <button class="pq-tabbtn" data-pq="gov" role="tab" aria-selected="false"><span class="pq-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 18h14M5 18V8M15 18V8M10 18V8M2 8l8-5 8 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Governo</button>
+          <button class="pq-tabbtn" data-pq="camp" role="tab" aria-selected="false"><span class="pq-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg></span>Campanha</button>
+          <button class="pq-tabbtn" data-pq="ag" role="tab" aria-selected="false"><span class="pq-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="6.5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 6.5V5a2 2 0 012-2h2a2 2 0 012 2v1.5" stroke="currentColor" stroke-width="1.5"/></svg></span>Agência</button>
+        </div>
+
+        <div class="pq-panel is-active" id="pq-com" role="tabpanel">
+          <div class="pq-panel-grid">
+            <div>
+              <h3>Para a comunicação da prefeitura</h3>
+              <p class="pq-who"><strong>Secretário de comunicação e a equipe de imprensa</strong> — quem produz as notícias da cidade.</p>
+              <p class="pq-pain">Você precisa saber o que a cidade falou para montar a pauta de hoje — sem garimpar dezenas de portais e grupos no olho.</p>
+              <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
+            </div>
+            <ul class="pq-uselist">
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Radar diário com tudo que passou na sua cidade.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Capa Executiva com os assuntos do dia e a Voz do Povo.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> As fontes que você cadastrou, lidas e resumidas para você.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Pauta na mão — e base para a próxima nota oficial.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pq-panel" id="pq-gov" role="tabpanel" hidden>
+          <div class="pq-panel-grid">
+            <div>
+              <h3>Para o gabinete e a articulação do governo</h3>
+              <p class="pq-who"><strong>O núcleo político da gestão</strong> — vice-prefeito e a equipe dedicada a acompanhar a opinião pública.</p>
+              <p class="pq-pain">Você monitora o que se fala sobre o governo para <strong>agir antes que vire crise</strong> — não para criar pauta.</p>
+              <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
+            </div>
+            <ul class="pq-uselist">
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Alertas do que está pegando fogo na cidade, em primeiro lugar.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Assuntos separados por secretaria — saiba a qual pasta cada cobrança pertence.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Direcione internamente: avise o secretário certo, no momento certo.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Imprensa, colunistas, redes e grupos de bairro num só lugar.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pq-panel" id="pq-camp" role="tabpanel" hidden>
+          <div class="pq-panel-grid">
+            <div>
+              <h3>Para a campanha e o mandato</h3>
+              <p class="pq-who"><strong>Candidatos e eleitos</strong> — vereador, prefeito, deputado — e quem coordena a comunicação.</p>
+              <p class="pq-pain">Você precisa ouvir a rua em tempo real, acompanhar a disputa e achar a pauta antes do concorrente.</p>
+              <ul class="pq-uselist" style="margin:22px 0 26px;">
+                <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Acompanhe os outros nomes da disputa num espaço próprio — e como a opinião reagiu.</li>
+                <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Cada notícia que toca as suas causas, destacada para você.</li>
+                <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Disputa a região? Uma leitura só, cobrindo todas as suas cidades.</li>
+              </ul>
+              <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
+            </div>
+            <div class="prod-mock" role="img" aria-label="Prévia da Capa de Campanha — briefing do mandato">
+              <div class="mock-bar">
+                <div>
+                  <div class="mock-bar-name">Capa de Campanha</div>
+                  <div class="mock-bar-date">Qua, 11 Jun 2026 &nbsp;·&nbsp; Cachoeirinha + Gravataí</div>
+                </div>
+                <div class="mock-live" title="Serviço ativo"></div>
+              </div>
+              <div class="mock-body">
+                <div>
+                  <div class="mock-sec-hd">⚡ Manchete do dia</div>
+                  <div class="mock-manchete">Reorganização do transporte metropolitano domina o debate na sua base.</div>
+                  <div class="mock-dek">O tema mobilidade concentra as menções na região — com forte reação nos bairros que você atende.</div>
+                </div>
+                <div>
+                  <div class="mock-sec-hd">📋 O resumo do período</div>
+                  <div class="mock-resumo"><b>Na imprensa:</b> portais regionais repercutem o debate sobre as linhas metropolitanas.</div>
+                  <div class="mock-resumo"><b>Nas redes:</b> moradores cobram melhorias e marcam os nomes da disputa.</div>
+                </div>
+                <div>
+                  <div class="mock-sec-hd">🔭 Na disputa</div>
+                  <div class="mock-card">
+                    <div class="mock-card-hd">Liderança da região anuncia emenda para a saúde</div>
+                    <div class="mock-meta">
+                      <span class="mock-pill">📍 Gravataí</span>
+                      <span class="mock-pill">🎯 Saúde</span>
+                    </div>
+                    <div class="mock-line"><b>🗣️ Voz do Povo:</b> repercussão positiva, com cobrança por mais investimento.</div>
+                    <div class="mock-radar">🎯 Radar IA · 909 visualizações · 73 curtidas &nbsp;—&nbsp; Fonte: portal regional</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="mock-sec-hd">🎯 Causas em destaque</div>
+                  <div class="mock-secs">
+                    <span class="mock-sec-chip">Saúde</span>
+                    <span class="mock-sec-chip">Educação</span>
+                    <span class="mock-sec-chip">Mobilidade</span>
+                    <span class="mock-sec-chip">Segurança</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pq-panel" id="pq-ag" role="tabpanel" hidden>
+          <div class="pq-panel-grid">
+            <div>
+              <h3>Para agências de comunicação e política</h3>
+              <p class="pq-who"><strong>Agências que atendem governos e campanhas</strong> e querem oferecer inteligência hiperlocal aos seus clientes.</p>
+              <p class="pq-pain">Você precisa atender vários clientes — institucionais e políticos — sem retrabalho, cada um do seu jeito.</p>
+              <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
+            </div>
+            <ul class="pq-uselist">
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Um ambiente próprio por cliente, configurado sob medida.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Cidades sob demanda: assine só as que cada cliente precisa.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Cobrança por cliente, sem pacote engessado.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Um fornecedor cobrindo institucional e campanha.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="pq-foot">Em todos os casos, quem abre o relatório é a assessoria — e a liderança recebe só o essencial.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 7 — FEITO SOB MEDIDA ══════════════════ -->
+  <section class="sec-sob" id="sob-medida" data-screen-label="Feito sob medida">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">Feito sob medida</div>
+        <h2>Não é um app self-service. É um serviço gerenciado.</h2>
+        <p>Fontes escolhidas a dedo, critérios calibrados com você e tudo organizado pelo que importa para o seu perfil. Você não configura nada — a nossa equipe cuida, da implantação ao suporte.</p>
+      </div>
+      <div class="impl-bar" role="list" aria-label="Etapas de implantação">
+        <div class="impl-step" role="listitem">
+          <div class="impl-n">Passo 1</div>
+          <h3>Mapeamos a sua cidade</h3>
+          <p>Definimos as fontes que importam para o seu perfil.</p>
+        </div>
+        <div class="impl-step" role="listitem">
+          <div class="impl-n">Passo 2</div>
+          <h3>Calibramos o seu editorial</h3>
+          <p>A IA aprende o que é notícia para você.</p>
+        </div>
+        <div class="impl-step" role="listitem">
+          <div class="impl-n">Passo 3</div>
+          <h3>Validamos antes de entregar</h3>
+          <p>Nenhum cliente recebe sem passagem editorial.</p>
+        </div>
+        <div class="impl-step" role="listitem">
+          <div class="impl-n">Passo 4</div>
+          <h3>Suporte contínuo</h3>
+          <p>Mudanças de fontes e critérios quando precisar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 8 — POR QUE CONFIAR ══════════════════ -->
+  <section class="sec-conf" id="confianca" data-screen-label="Por que confiar">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">Por que confiar</div>
+        <h2>Transparência e segurança em primeiro lugar.</h2>
+      </div>
+      <div class="lgpd-band">
+        <div class="lgpd-item">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L4 6v5c0 4.15 2.96 8.03 7 9 4.04-.97 7-4.85 7-9V6l-7-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <div><h3>Dados no Brasil</h3><p>Sua informação em servidores no país — menos atrito com a LGPD.</p></div>
+        </div>
+        <div class="lgpd-item">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4C6 4 2.7 8.5 2 11c.7 2.5 4 7 9 7s8.3-4.5 9-7c-.7-2.5-4-7-9-7z" stroke="currentColor" stroke-width="1.7"/><circle cx="11" cy="11" r="2.6" stroke="currentColor" stroke-width="1.7"/></svg>
+          <div><h3>Só fontes públicas</h3><p>Apenas conteúdo aberto. Nunca grupos fechados ou dados privados.</p></div>
+        </div>
+        <div class="lgpd-item">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M7 9V7a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <div><h3>Sem rastreamento</h3><p>Este site não usa cookies de rastreamento. Privacidade desde a porta.</p></div>
+        </div>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 11l2.5 2.5 5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Sem lado</h3>
+          <p>Tecnologia neutra. Entregamos o que está sendo dito, com a fonte sempre citada, sem viés partidário.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="2" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 7h6M8 11h6M8 15h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Inteligência auditável</h3>
+          <p>Cada item entregue tem um porquê rastreável — não é caixa-preta.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 20h16M5 20V10M17 20V10M11 20V10M2 10l9-7 9 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Feita para o setor público</h3>
+          <p>Construída do zero para a realidade brasileira do setor público.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C7.7 2 5 4.7 5 8c0 4 6 11 6 11s6-7 6-11c0-3.3-2.7-6-6-6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="11" cy="8" r="2.2" stroke="currentColor" stroke-width="1.7"/></svg>
+          </div>
+          <h3>Cada fonte é da sua cidade</h3>
+          <p>Cachoeirinha existe em três estados. Garantimos que monitoramos a sua — não uma homônima.</p>
+        </div>
+      </div>
+      <div style="margin-top:40px;text-align:center;max-width:780px;margin-left:auto;margin-right:auto;font-size:1.06rem;color:#374151;line-height:1.6;">
+        <strong style="color:var(--ink);">Diagnóstico, não conteúdo.</strong> Nós mostramos o que a cidade está dizendo — você decide o que fazer. Não criamos conteúdo, não publicamos e não disparamos mensagens em seu nome.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 9 — FAQ ══════════════════════════════ -->
+  <section class="sec-faq" id="faq" data-screen-label="FAQ">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">FAQ</div>
+        <h2>Perguntas frequentes</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Vocês criam conteúdo ou postam por mim?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">A AtaraxIA faz diagnóstico, não conteúdo. Monitoramos e organizamos o que está sendo dito sobre a sua cidade — não produzimos notícias, não publicamos em redes e não enviamos mensagens a eleitores. Você recebe a informação qualificada e decide, com segurança, os melhores caminhos.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Preciso envolver o setor de TI?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">Não é necessário. A AtaraxIA é um serviço totalmente gerenciado: você recebe os relatórios prontos, sem precisar instalar programas ou realizar integrações. Toda a parte técnica fica por nossa conta.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Quais fontes vocês monitoram?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">Monitoramos as fontes mais relevantes para a sua cidade e o seu perfil: imprensa local, redes sociais (Instagram, Facebook e YouTube), grupos públicos de bairro, colunistas e portais regionais. A seleção é definida em conjunto com você na implantação e permanece flexível — o mapa de fontes pode ser ajustado sempre que necessário.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Vocês têm viés político?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">Não. Trabalhamos com tecnologia neutra e total transparência: cada informação vem acompanhada da fonte e sem qualquer juízo de valor. A AtaraxIA apresenta o que está sendo dito e como está sendo dito, sem tomar partido.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            É seguro? E a LGPD?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">Sim. Monitoramos exclusivamente conteúdo público — nunca dados privados ou cadastros pessoais. As informações ficam armazenadas no Brasil, em nuvem profissional com acesso restrito, o que reduz significativamente os pontos de atenção em relação à LGPD.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como funciona a contratação?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">O formato se adapta ao seu perfil: agências contratam diretamente; prefeituras podem ou não envolver processo licitatório; e mandatos podem contratar pelo gabinete ou pelo partido. Os detalhes são definidos na proposta, sempre após uma apresentação do serviço.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Posso cancelar?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">Sim. O cancelamento segue um prazo de aviso previsto em contrato, definido em comum acordo com cada cliente.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 10 — CTA FINAL + FORMULÁRIO ══════════ -->
+  <section class="sec-cta" id="contato" data-screen-label="Contato">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="cta-text">
+          <div class="eyebrow cta-eyebrow">Apresentação</div>
+          <h2>Peça uma apresentação.</h2>
+          <p>Não vendemos pacote de prateleira. O investimento varia conforme o tamanho do trabalho — quantas fontes e cidades, com que frequência e quais serviços. Nossa equipe entra em contato, apresenta o produto e levanta o que você precisa.</p>
+          <div class="cta-notes">
+            <div class="cta-note">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6.5" fill="rgba(255,255,255,.12)"/><path d="M4.5 7.5l2 2 4-4" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Sem compromisso — só uma conversa.
+            </div>
+            <div class="cta-note">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6.5" fill="rgba(255,255,255,.12)"/><path d="M4.5 7.5l2 2 4-4" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Sem TI — serviço gerenciado.
+            </div>
+            <div class="cta-note">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6.5" fill="rgba(255,255,255,.12)"/><path d="M4.5 7.5l2 2 4-4" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Resposta rápida da nossa equipe.
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form id="leadForm" novalidate>
+            <!-- Honeypot — nunca deve ser preenchido por humanos -->
+            <div class="hp-wrap" aria-hidden="true">
+              <label for="hp_site">Não preencha este campo</label>
+              <input type="text" id="hp_site" name="hp_site" autocomplete="off" tabindex="-1" value="">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Nome *</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com.br" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="organizacao">Organização / Cidade *</label>
+              <input type="text" id="organizacao" name="organizacao" placeholder="Ex.: Prefeitura de Cachoeirinha, RS" required>
+            </div>
+            <div class="form-group">
+              <label for="perfil">Cargo / Perfil *</label>
+              <select id="perfil" name="perfil" required>
+                <option value="" disabled selected>Selecione seu perfil</option>
+                <option value="prefeitura_camara">Prefeitura / Câmara</option>
+                <option value="mandato_candidato">Mandato / Candidato</option>
+                <option value="agencia">Agência</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mensagem">
+                Mensagem
+                <span style="font-weight:400;color:#6B7280"> (opcional)</span>
+              </label>
+              <textarea id="mensagem" name="mensagem" placeholder="Descreva brevemente sua necessidade…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Pedir apresentação</button>
+            <div class="form-feedback" id="formFeedback" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- ══════════════════════ FOOTER ═══════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="foot-brand">
+          <a href="#" class="logo" aria-label="AtaraxIA — Início da página">
+            <span style="color:#ffffff">Atarax</span><span style="color:#818CF8">IA</span>
+          </a>
+          <p class="foot-tagline">Inteligência hiperlocal para o setor público</p>
+        </div>
+        <div class="foot-col">
+          <h4>Produto</h4>
+          <ul>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#produto">O que entregamos</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#sob-medida">Feito sob medida</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#para-quem">Para quem</a></li>
+            <li><a href="#confianca">Por que confiar</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contato">Pedir apresentação</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 AtaraxIA Sistemas &nbsp;&middot;&nbsp; Cachoeirinha, RS</p>
+        <a href="politica-privacidade.html">Política de Privacidade / LGPD</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ─── CONSTANTE DO WEBHOOK — troque aqui se mudar a URL ─── */
+    var WEBHOOK_URL   = 'https://n8n.ataraxiasistemas.com.br/webhook/lead-site';
+
+    /* ─── A11y: SVGs decorativos e indicadores → aria-hidden ─── */
+    document.querySelectorAll('.lgpd-item svg, .pf-ic svg, .cta-note svg, .pq-ic svg, .mock-live').forEach(function (el) {
+      el.setAttribute('aria-hidden', 'true');
+    });
+
+    /* ─── NAV MOBILE ─────────────────────────────────────────── */
+    var burger    = document.getElementById('navBurger');
+    var mobileNav = document.getElementById('navMobile');
+
+    burger.addEventListener('click', function () {
+      var open = mobileNav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+
+    mobileNav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileNav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    window.addEventListener('scroll', function () {
+      if (mobileNav.classList.contains('is-open')) {
+        mobileNav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    }, { passive: true });
+
+    /* ─── FAQ ACCORDION ──────────────────────────────────────── */
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item    = btn.closest('.faq-item');
+        var wasOpen = item.classList.contains('is-open');
+        /* fecha todos */
+        document.querySelectorAll('.faq-item').forEach(function (i) {
+          i.classList.remove('is-open');
+          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        /* reabre se estava fechado */
+        if (!wasOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* ─── PARA QUEM — abas (padrão APG Tabs: clique + teclado + ARIA) ─── */
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.pq-tabbtn'));
+      function activate(btn, focus) {
+        var key = btn.getAttribute('data-pq');
+        tabs.forEach(function (b) {
+          var on = (b === btn);
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-selected', String(on));
+          b.setAttribute('tabindex', on ? '0' : '-1');
+        });
+        document.querySelectorAll('.pq-panel').forEach(function (p) {
+          var on = (p.id === 'pq-' + key);
+          p.classList.toggle('is-active', on);
+          if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+        });
+        if (focus) { btn.focus(); }
+      }
+      tabs.forEach(function (btn, i) {
+        var key = btn.getAttribute('data-pq');
+        var panel = document.getElementById('pq-' + key);
+        btn.id = 'tab-' + key;
+        btn.setAttribute('tabindex', btn.classList.contains('is-active') ? '0' : '-1');
+        if (panel) {
+          btn.setAttribute('aria-controls', panel.id);
+          panel.setAttribute('aria-labelledby', btn.id);
+          panel.setAttribute('tabindex', '0');
+        }
+        btn.addEventListener('click', function () { activate(btn, false); });
+        btn.addEventListener('keydown', function (e) {
+          var n = tabs.length, t;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') t = tabs[(i + 1) % n];
+          else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') t = tabs[(i - 1 + n) % n];
+          else if (e.key === 'Home') t = tabs[0];
+          else if (e.key === 'End') t = tabs[n - 1];
+          else return;
+          e.preventDefault();
+          activate(t, true);
+        });
+      });
+    })();
+
+    /* ─── FORMULÁRIO ─────────────────────────────────────────── */
+    var leadForm   = document.getElementById('leadForm');
+    var feedbackEl = document.getElementById('formFeedback');
+
+    leadForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      /* Honeypot — descarta silenciosamente se preenchido */
+      if (document.getElementById('hp_site').value !== '') { return; }
+
+      var data = {
+        nome:        leadForm.nome.value.trim(),
+        email:       leadForm.email.value.trim(),
+        organizacao: leadForm.organizacao.value.trim(),
+        perfil:      leadForm.perfil.value,
+        mensagem:    leadForm.mensagem.value.trim(),
+        hp_site:     ''
+      };
+
+      var obrigatorios = ['nome', 'email', 'organizacao', 'perfil'];
+      var faltando = obrigatorios.filter(function (f) { return !data[f]; });
+      obrigatorios.forEach(function (f) {
+        leadForm[f].setAttribute('aria-invalid', data[f] ? 'false' : 'true');
+      });
+      if (faltando.length) {
+        showFeedback('is-err', 'Preencha os campos obrigatórios antes de enviar.');
+        leadForm[faltando[0]].focus();
+        return;
+      }
+
+      var submitBtn = leadForm.querySelector('.btn-submit');
+      submitBtn.disabled   = true;
+      submitBtn.textContent = 'Enviando\u2026';
+      feedbackEl.className  = 'form-feedback';
+
+      fetch(WEBHOOK_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(data)
+      })
+      .then(function (res) {
+        if (res.ok) {
+          showFeedback('is-ok', 'Recebido! Nossa equipe entra em contato.');
+          leadForm.reset();
+        } else {
+          throw new Error('status ' + res.status);
+        }
+      })
+      .catch(function () {
+        showFeedback('is-err', 'N\u00e3o foi poss\u00edvel enviar. Tente novamente em instantes.');
+      })
+      .finally(function () {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Quero uma apresenta\u00e7\u00e3o';
+      });
+    });
+
+    function showFeedback(cls, msg) {
+      feedbackEl.className   = 'form-feedback ' + cls;
+      feedbackEl.textContent = msg;
+    }
+  </script>
+
+</body>
+</html>
