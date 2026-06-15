@@ -1,0 +1,41 @@
+# Umami (analytics cookieless) — projeto Docker SEPARADO `ataraxia-analytics`.
+# Segredos vivem em .env (NAO versionado). Traefik resolver = mytlschallenge.
+services:
+  umami-db:
+    image: postgres:15-alpine
+    container_name: ataraxia-umami-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${UMAMI_DB_PASSWORD}
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+    networks: [internal]
+
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    container_name: ataraxia-umami
+    restart: unless-stopped
+    depends_on: [umami-db]
+    environment:
+      DATABASE_TYPE: postgresql
+      DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD}@umami-db:5432/umami
+      APP_SECRET: ${UMAMI_APP_SECRET}
+    networks: [internal, web]
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=root_default"
+      - "traefik.http.routers.umami.rule=Host(`analytics.ataraxiasistemas.com.br`)"
+      - "traefik.http.routers.umami.entrypoints=websecure"
+      - "traefik.http.routers.umami.tls.certresolver=mytlschallenge"
+      - "traefik.http.services.umami.loadbalancer.server.port=3000"
+
+networks:
+  internal:
+  web:
+    external: true
+    name: root_default
+
+volumes:
+  umami-db-data:
