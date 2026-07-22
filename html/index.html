@@ -169,10 +169,15 @@
     .nav-mobile-menu {
       display: none; flex-direction: column; gap: 2px;
       padding: 10px 24px 20px; border-top: 1px solid var(--border);
+      /* Flutua sobre o conteúdo (o nav sticky é o containing block).
+         Antes era in-flow: abrir o menu crescia o nav ~437px, o Chrome
+         compensava com scroll-anchoring e o listener de scroll fechava
+         o menu sozinho em ~15ms — o botão parecia morto fora do topo. */
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: #fff; box-shadow: 0 14px 28px rgba(0,0,0,.12);
+      max-height: calc(100dvh - 64px); overflow-y: auto; -webkit-overflow-scrolling: touch;
     }
     .nav-mobile-menu.is-open { display: flex; }
-    /* menu nunca maior que a tela — rola por dentro se precisar */
-    .nav-mobile-menu { max-height: calc(100dvh - 64px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
     .nav-mobile-menu a {
       padding: 12px 14px; min-height: 44px; box-sizing: border-box;
       display: flex; align-items: center;
@@ -1510,6 +1515,7 @@
     var mobileNav = document.getElementById('navMobile');
 
     var navScrollBase = 0;   /* scrollY no instante em que o menu abriu */
+    var navAbertoEm   = 0;   /* quando abriu — ignora o scroll do próprio reflow */
 
     function fecharMenu() {
       mobileNav.classList.remove('is-open');
@@ -1517,6 +1523,7 @@
     }
     function abrirMenu() {
       navScrollBase = window.scrollY;
+      navAbertoEm   = Date.now();
       mobileNav.classList.add('is-open');
       burger.setAttribute('aria-expanded', 'true');
     }
@@ -1548,9 +1555,12 @@
 
     /* Fecha só em rolagem intencional (>40px).
        A barra de endereço do navegador móvel dispara 'scroll' ao reaparecer —
-       com limiar 0 o menu fechava no mesmo toque que o abria. */
+       com limiar 0 o menu fechava no mesmo toque que o abria.
+       E qualquer reflow na abertura pode gerar um salto de scroll sintético
+       (scroll-anchoring): nos primeiros 400ms só re-ancora, nunca fecha. */
     window.addEventListener('scroll', function () {
       if (!mobileNav.classList.contains('is-open')) return;
+      if (Date.now() - navAbertoEm < 400) { navScrollBase = window.scrollY; return; }
       if (Math.abs(window.scrollY - navScrollBase) > 40) fecharMenu();
     }, { passive: true });
 
