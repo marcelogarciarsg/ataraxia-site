@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AtaraxIA Sistemas — Inteligência hiperlocal para o setor público</title>
+  <title>AtaraxIA — Clipping e monitoramento de redes sociais para a sua cidade</title>
   <!-- Umami analytics (cookieless, sem banner) -->
-  <script defer src="https://analytics.ataraxiasistemas.com.br/script.js" data-website-id="67ec68cb-09ae-4165-8485-d3d044b6d090"></script>
-  <meta name="description" content="Clipping hiperlocal com IA para prefeituras, câmaras e mandatos. Monitoramento de redes, portais e grupos públicos — entregamos só o que importa para o setor público.">
+  <script defer src="https://analytics.ataraxiasistemas.com.br/script.js" data-website-id="2481fcb1-c438-417d-96c8-d31e1dec9c27"></script>
+  <meta name="description" content="Clipping hiperlocal, monitoramento de redes sociais e mídias digitais e o índice de satisfação da sua cidade — para prefeituras, câmaras e campanhas. Todo dia, sob medida para você.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="AtaraxIA Sistemas">
   <link rel="canonical" href="https://ataraxiasistemas.com.br/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AtaraxIA Sistemas — Inteligência hiperlocal para o setor público">
-  <meta property="og:description" content="Clipping hiperlocal com IA. Monitoramento de redes e portais da sua cidade para prefeituras, câmaras, mandatos e agências.">
+  <meta property="og:title" content="AtaraxIA — Clipping e monitoramento de redes sociais para a sua cidade">
+  <meta property="og:description" content="Clipping hiperlocal, monitoramento de redes sociais e mídias digitais e o índice de satisfação da sua cidade — para prefeituras, câmaras e campanhas. Todo dia, sob medida para você.">
   <meta property="og:url" content="https://ataraxiasistemas.com.br/">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="AtaraxIA Sistemas">
@@ -23,10 +23,41 @@
     "name": "AtaraxIA Sistemas",
     "alternateName": "AtaraxIA",
     "url": "https://ataraxiasistemas.com.br/",
-    "description": "GovTech de inteligência hiperlocal para o setor público — clipping com IA de redes sociais, portais e grupos públicos para prefeituras, câmaras, mandatos e agências.",
+    "description": "GovTech de inteligência hiperlocal para o setor público — clipping da imprensa e monitoramento de redes sociais e mídias digitais para prefeituras, câmaras, mandatos e agências.",
     "slogan": "Inteligência hiperlocal para o setor público",
     "areaServed": "BR",
     "knowsLanguage": "pt-BR"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "serviceType": "Clipping",
+        "name": "Clipping",
+        "description": "Todo item coletado na cidade e aprovado pelo critério do cliente — imprensa e redes sociais, com sentimento, alcance e fontes rastreáveis.",
+        "provider": { "@type": "Organization", "name": "AtaraxIA Sistemas" },
+        "areaServed": "BR"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Panorama do Dia",
+        "name": "Panorama do Dia",
+        "description": "As notícias mais importantes do dia, sintetizadas e sem repetição, organizadas pelos temas que importam ao cliente.",
+        "provider": { "@type": "Organization", "name": "AtaraxIA Sistemas" },
+        "areaServed": "BR"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Painel de Monitoramento",
+        "name": "Painel de Monitoramento",
+        "description": "Histórico navegável de 7 ou 30 dias, com consultas por tema, rede, fonte ou sentimento.",
+        "provider": { "@type": "Organization", "name": "AtaraxIA Sistemas" },
+        "areaServed": "BR"
+      }
+    ]
   }
   </script>
   <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'><rect width='1200' height='630' fill='%234F46E5'/><text x='600' y='345' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='120' fill='white'>AtaraxIA</text></svg>">
@@ -49,6 +80,7 @@
       --bg-alt:    #FAFAFA;
       --green:     #16A34A;
       --amber:     #D97706;
+      --red:       #DC2626;
       --font:      'Inter', system-ui, Arial, sans-serif;
       --r:         12px;
       --r-sm:      8px;
@@ -59,7 +91,7 @@
 
     /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
     body {
       font-family: var(--font);
       color: var(--ink);
@@ -84,8 +116,9 @@
     h2 { font-size: clamp(1.55rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.16; letter-spacing: -.025em; text-wrap: balance; }
     h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.35; }
     p  { color: #374151; line-height: 1.75; }
-    .sec-hd { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .sec-hd { text-align: center; max-width: 660px; margin: 0 auto 56px; }
     .sec-hd h2 { margin-bottom: 14px; }
+    .sec-hd .sec-lead { color: #6B7280; font-size: 1.02rem; margin-top: 8px; }
 
     /* ─── BUTTONS ─────────────────────────────────────────────── */
     .btn {
@@ -138,6 +171,8 @@
       padding: 10px 24px 20px; border-top: 1px solid var(--border);
     }
     .nav-mobile-menu.is-open { display: flex; }
+    /* menu nunca maior que a tela — rola por dentro se precisar */
+    .nav-mobile-menu { max-height: calc(100dvh - 64px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
     .nav-mobile-menu a {
       padding: 12px 14px; min-height: 44px; box-sizing: border-box;
       display: flex; align-items: center;
@@ -147,9 +182,10 @@
     .nav-mobile-menu a:hover { background: var(--indigo-lt); color: var(--indigo); }
     .nav-mobile-menu .btn { margin-top: 8px; width: fit-content; }
 
-    /* ─── HERO A — centralizado ──────────────────────────────── */
+    /* ─── HERO — split c/ mock ───────────────────────────────── */
     .hero-a {
       min-height: auto;
+      padding: 0;
       display: flex; align-items: center;
       background: var(--indigo-lt);
       position: relative; overflow: visible;
@@ -169,128 +205,83 @@
       -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 72%);
       pointer-events: none;
     }
-    .hero-a-inner {
-      position: relative; z-index: 1;
-      text-align: center; max-width: 860px;
-      margin: 0 auto; padding: 80px 0;
-    }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(79,70,229,.1); border: 1px solid rgba(79,70,229,.22);
       color: var(--indigo); font-size: 12.5px; font-weight: 600;
-      padding: 6px 16px; border-radius: 40px; margin-bottom: 32px;
+      padding: 6px 16px; border-radius: 40px; margin-bottom: 24px;
     }
-    .hero-a h1 { color: var(--ink); font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.12; margin-bottom: 18px; }
-    .hero-sub { font-size: 1.18rem; color: #4B5563; margin-bottom: 44px; max-width: 500px; margin-left: auto; margin-right: auto; }
-    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* ─── HERO B — split c/ mock ─────────────────────────────── */
-    .hero-b {
-      display: none;
-      min-height: calc(100vh - 64px);
-      align-items: center;
-      background: var(--bg);
-      position: relative; overflow: hidden;
-    }
-    .hero-b::before {
-      content: ''; position: absolute; right: -80px; top: -80px;
-      width: 640px; height: 640px;
-      background: radial-gradient(circle, rgba(79,70,229,.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-b-wrap {
-      display: grid; grid-template-columns: 1fr 1.05fr;
-      gap: 56px; align-items: center; padding: 80px 0; width: 100%;
-    }
-    .hero-b-text h1 { margin-bottom: 22px; }
-    .hero-b-text .hero-sub { margin-left: 0; margin-bottom: 38px; text-align: left; }
-
-    /* ─── PRODUCT MOCK ───────────────────────────────────────── */
-    .prod-mock {
-      background: #fff; border: 1px solid var(--border);
-      border-radius: 18px; overflow: hidden; box-shadow: var(--sh-lg);
-      font-size: 13px;
-      max-height: 560px;
-      -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent 100%);
-              mask-image: linear-gradient(to bottom, #000 88%, transparent 100%);
-    }
-    .mock-bar {
-      background: var(--indigo); color: #fff;
-      padding: 16px 22px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .mock-bar-name { font-weight: 700; font-size: 14px; }
-    .mock-bar-date { font-size: 11.5px; opacity: .9; margin-top: 2px; }
-    .mock-live { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; flex-shrink: 0; }
-    .mock-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 18px; }
-    .mock-sec-hd {
-      font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
-      color: var(--gray); padding-bottom: 7px; border-bottom: 1px solid var(--border); margin-bottom: 10px;
-    }
-    .mock-row { display: flex; gap: 9px; align-items: flex-start; }
-    .mock-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); flex-shrink: 0; margin-top: 5px; }
-    .mock-dot.am { background: var(--amber); }
-    .mock-dot.gr { background: var(--green); }
-    .mock-txt { font-size: 12.5px; color: #374151; line-height: 1.45; }
-    .mock-tag {
-      display: inline-block; font-size: 10px; font-weight: 600;
-      padding: 1.5px 8px; border-radius: 10px; margin-left: 4px; vertical-align: middle;
-    }
-    .mock-tag.pos { background: #dcfce7; color: #166534; }
-    .mock-tag.neg { background: #fee2e2; color: #991b1b; }
-    .mock-tag.neu { background: #f3f4f6; color: #4b5563; }
-    .mock-sentiment { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
-    .sent-bar { flex: 1; height: 5px; background: #e5e7eb; border-radius: 10px; overflow: hidden; }
-    .sent-fill { height: 100%; width: 78%; background: linear-gradient(to right, #16a34a, #86efac); border-radius: 10px; }
-    .sent-lbl { font-size: 11px; color: var(--gray); font-weight: 500; }
-    /* ─── Capa real: manchete editorial, resumo, card de item ── */
-    .mock-manchete { font-size: 14px; font-weight: 700; color: #1f2937; line-height: 1.34; }
-    .mock-dek { font-size: 12px; color: #6b7280; line-height: 1.45; margin-top: 5px; }
-    .mock-resumo { font-size: 12px; color: #374151; line-height: 1.5; }
-    .mock-resumo + .mock-resumo { margin-top: 6px; }
-    .mock-resumo b { color: var(--indigo); font-weight: 600; }
-    .mock-card { border: 1px solid var(--border); border-radius: 12px; padding: 12px 13px; }
-    .mock-card-hd { font-size: 12.5px; font-weight: 600; color: #1f2937; line-height: 1.35; }
-    .mock-meta { display: flex; flex-wrap: wrap; gap: 5px; margin: 8px 0 2px; }
-    .mock-pill { font-size: 9.5px; font-weight: 600; padding: 2px 8px; border-radius: 8px; background: #eef2ff; color: #4338ca; white-space: nowrap; }
-    .mock-line { font-size: 11.5px; color: #4b5563; line-height: 1.42; margin-top: 6px; }
-    .mock-line b { color: #374151; font-weight: 600; }
-    .mock-radar { font-size: 11px; color: var(--gray); margin-top: 5px; }
-    .mock-secs { display: flex; flex-wrap: wrap; gap: 5px; }
-    .mock-sec-chip { font-size: 10px; font-weight: 600; padding: 2.5px 9px; border-radius: 20px; background: #f3f4f6; color: #4b5563; }
-
-    /* ─── HERO SWITCHER ──────────────────────────────────────── */
-    .hero-switcher {
-      position: fixed; bottom: 20px; right: 20px; z-index: 200;
-      background: #fff; border: 1px solid var(--border); border-radius: 40px;
-      padding: 4px 4px 4px 12px; box-shadow: var(--sh-lg);
-      display: flex; align-items: center; gap: 4px;
-    }
-    .hs-lbl { font-size: 10.5px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: .08em; padding-right: 4px; }
-    .hs-btn {
-      padding: 6px 14px; border-radius: 36px; border: none; cursor: pointer;
-      font-family: var(--font); font-size: 12.5px; font-weight: 600;
-      background: transparent; color: var(--gray); transition: all .15s;
-    }
-    .hs-btn.is-active { background: var(--indigo); color: #fff; }
+    .hero-a h1 { color: var(--ink); margin-bottom: 18px; }
+    .hero-sub { font-size: 1.14rem; color: #4B5563; margin-bottom: 30px; max-width: 480px; }
 
     /* ─── § PROBLEMA ─────────────────────────────────────────── */
     .sec-problema { background: var(--ink); }
     .sec-problema .eyebrow { color: var(--indigo-ac); }
     .sec-problema h2 { color: #fff; }
     .sec-problema p { color: #d1d5db; }
-    .prob-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .prob-quote {
-      border-left: 3px solid var(--indigo-ac); padding-left: 22px;
-      font-style: italic; font-size: 1.1rem; color: #f3f4f6; line-height: 1.65;
-      margin-top: 28px;
+    .prob-cetic { border-left: 3px solid var(--indigo-ac); padding-left: 22px; margin-top: 26px; }
+    .prob-cetic p { font-size: 1.06rem; color: #f3f4f6; line-height: 1.6; }
+    .prob-cetic strong { color: #fff; }
+    .prob-src { font-size: 12.5px; color: #6b7280; margin-top: 14px; }
+
+    /* ─── § SOB MEDIDA (cliente) ─────────────────────────────── */
+    .sec-medida { background: var(--bg); }
+    .medida-lead { max-width: 760px; margin: 0 auto 40px; text-align: center; color: #374151; font-size: 1.04rem; }
+    .medida-lead strong { color: var(--ink); }
+    .medida-fecho { text-align: center; max-width: 640px; margin: 34px auto 0; font-size: .98rem; color: var(--gray); font-style: italic; }
+
+    /* ─── § ALÉM DAS MENÇÕES ─────────────────────────────────── */
+    .sec-alem { background: var(--indigo-lt); }
+    .alem-wrap { max-width: 820px; margin: 0 auto; }
+    .alem-copy p { font-size: 1.05rem; color: #374151; margin-bottom: 16px; }
+    .alem-copy strong { color: var(--ink); }
+    .alem-example {
+      background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--indigo);
+      border-radius: var(--r); padding: 26px 28px; margin-top: 28px; box-shadow: var(--sh);
     }
-    .prob-right p + p { margin-top: 18px; }
-    .prob-right p { font-size: 1.02rem; }
-    .prob-right strong { color: #fff; }
+    .alem-example p { font-style: italic; color: #374151; font-size: .98rem; line-height: 1.6; }
+
+    /* ─── § SATISFAÇÃO DA CIDADE ─────────────────────────────── */
+    .sec-satisfacao { background: var(--bg); }
+    .sat-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    .sat-selo { margin-top: 22px; font-size: .85rem; color: var(--gray); font-style: italic; border-left: 3px solid var(--border); padding-left: 14px; }
+    .sat-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--sh-lg); padding: 26px; }
+    .sat-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+    .sat-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); }
+    .sat-nota { display: flex; align-items: baseline; gap: 12px; }
+    .sat-nota .n { font-size: 52px; font-weight: 800; color: var(--green); line-height: 1; }
+    .sat-nota .d { font-size: 13px; font-weight: 700; color: var(--green); }
+    .sat-line { margin: 14px 0 18px; display: block; }
+    .sat-temas { display: flex; flex-direction: column; gap: 9px; }
+    .sat-tema { display: flex; align-items: center; gap: 10px; }
+    .sat-tema .t-n { font-size: 12.5px; font-weight: 600; color: #374151; width: 92px; flex-shrink: 0; }
+    .sat-tema .t-bar { flex: 1; height: 7px; border-radius: 10px; background: #f0f1f4; overflow: hidden; }
+    .sat-tema .t-fill { height: 100%; border-radius: 10px; }
+    .sat-tema .t-v { font-size: 12px; font-weight: 700; width: 26px; text-align: right; }
+    .sat-foot { margin-top: 16px; font-size: 11px; color: var(--gray); line-height: 1.5; }
+
+    /* ─── FIGURAS DE PRINT (telas reais do Painel) ───────────── */
+    .shot { margin: 40px 0 0; }
+    .shot img {
+      display: block; width: 100%; height: auto;
+      border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--sh-lg);
+    }
+    .shot figcaption { margin-top: 11px; font-size: 12px; color: var(--gray); font-style: italic; text-align: center; }
+    .shot-narrow { max-width: 560px; margin-left: auto; margin-right: auto; }
+    /* versão escura (dentro da § Painel) */
+    .shot-dark img { border-color: rgba(255,255,255,.09); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+    .shot-dark figcaption { color: #8b8f9a; }
+    .painel-shots { display: flex; flex-direction: column; gap: 18px; }
+    .painel-shots figure { margin: 0; }
+    .painel-shots img {
+      display: block; width: 100%; height: auto; border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.08); box-shadow: 0 20px 50px rgba(0,0,0,.45);
+    }
+    .painel-shots figcaption { margin-top: 8px; font-size: 11.5px; color: #8b8f9a; font-style: italic; }
 
     /* ─── § DIFERENCIAIS ─────────────────────────────────────── */
-    .sec-dif { background: var(--indigo-lt); }
-    .cards-2x2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .sec-dif { background: var(--bg-alt); }
+    .cards-2x2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .card {
       background: #fff; border: 1px solid var(--border);
       border-radius: var(--r); padding: 30px; box-shadow: var(--sh); transition: all .2s;
@@ -302,39 +293,109 @@
       color: var(--indigo); margin-bottom: 18px;
     }
     .card h3 { margin-bottom: 10px; }
+    .card .card-challenge { display: block; margin-top: 10px; font-size: 12.5px; color: var(--indigo); font-weight: 600; }
 
-    /* ─── § O QUE ENTREGA ────────────────────────────────────── */
-    .sec-produto { background: var(--bg); }
-    .modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 28px; }
-    .module-card {
+    /* ─── § PLATAFORMA ────────────────────────────────────────── */
+    .sec-plataforma { background: var(--bg); }
+    .plat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 28px; }
+    .plat-card {
       background: var(--bg-alt); border: 1px solid var(--border);
       border-radius: var(--r); padding: 32px 28px; position: relative; overflow: hidden;
     }
-    .module-card::before {
+    .plat-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0;
       height: 3px; background: var(--indigo);
     }
-    .mod-num { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--indigo); margin-bottom: 10px; }
-    .module-card h3 { font-size: 1.2rem; margin-bottom: 4px; }
-    .mod-tagline { font-size: 13px; color: var(--indigo); font-weight: 600; margin-bottom: 14px; }
-    .demanda-strip {
+    .plat-num { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--indigo); margin-bottom: 10px; }
+    .plat-card h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    .plat-tagline { font-size: 13px; color: var(--indigo); font-weight: 600; margin-bottom: 14px; }
+    .fecho-strip {
       background: var(--ink); border-radius: var(--r); padding: 28px 32px;
       display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
     }
-    .demanda-strip h3 { color: #fff; margin-bottom: 5px; }
-    .demanda-strip p { color: #9ca3af; font-size: 14px; }
-    .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-    .chip {
-      background: rgba(255,255,255,.1); color: #e5e7eb;
-      border: 1px solid rgba(255,255,255,.15); padding: 5px 14px;
-      border-radius: 20px; font-size: 13px; font-weight: 500;
-    }
+    .fecho-strip p { color: #fff; font-size: 15px; font-weight: 600; margin: 0; }
+    .fecho-strip span { display: block; color: #9ca3af; font-size: 13px; font-weight: 400; margin-top: 4px; }
+
+    /* ─── § PRODUTO — genérica (Clipping / Panorama) ─────────── */
+    .sec-produto1 { background: var(--bg-alt); }
+    .sec-produto2 { background: var(--bg); }
+    .prod-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: start; }
+    .prod-lead { font-size: 1.03rem; color: #374151; margin-bottom: 22px; }
+    .feat-list { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-top: 4px; }
+    .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: #374151; line-height: 1.5; }
+    .feat-list li svg { flex-shrink: 0; margin-top: 3px; }
+    .feat-list-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); margin: 22px 0 10px; }
+    .prod-fecho { margin-top: 24px; padding: 18px 20px; background: var(--indigo-lt); border-radius: var(--r-sm); font-size: .95rem; color: var(--indigo-dk); font-weight: 600; }
+
+    /* ─── § PAINEL — seção escura + mockup ───────────────────── */
+    .sec-painel { background: #0D0D0F; color: #fff; padding: 96px 0; }
+    .sec-painel .eyebrow { color: #a5b4fc; }
+    .sec-painel h2 { color: #fff; }
+    .painel-grid { display: grid; grid-template-columns: 1fr 1.12fr; gap: 48px; align-items: center; margin-top: 10px; }
+    .painel-lead { color: #c7c9d1; font-size: 1.05rem; line-height: 1.6; margin: 0 0 24px; }
+    .painel-telas { list-style: none; margin: 0; padding: 0; display: grid; gap: 15px; }
+    .painel-tela { display: flex; gap: 12px; align-items: flex-start; }
+    .painel-tela .pt-ic { flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px; background: rgba(99,102,241,.18); display: flex; align-items: center; justify-content: center; color: #a5b4fc; }
+    .painel-tela h3 { margin: 0 0 2px; font-size: .95rem; color: #fff; }
+    .painel-tela p { margin: 0; font-size: .87rem; color: #9ca3af; line-height: 1.42; }
+    .painel-selo { display: inline-flex; align-items: center; gap: 7px; margin-top: 24px; font-size: .8rem; color: #a5b4fc; background: rgba(165,180,252,.1); border: 1px solid rgba(165,180,252,.25); padding: 6px 13px; border-radius: 20px; }
+    .painel-selo::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #a5b4fc; }
+    .painel-cta { margin-top: 26px; }
+    .painel-cta p { color: #e5e7eb; font-size: .95rem; margin-bottom: 12px; }
+    /* dashboard mock */
+    .dash { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.45); color: #111; }
+    .dash-top { display: flex; align-items: center; justify-content: space-between; padding: 13px 17px; border-bottom: 1px solid #eef0f3; }
+    .dash-ttl { font-weight: 700; font-size: .9rem; display: flex; align-items: center; gap: 8px; }
+    .dash-ttl span { color: #6b7280; font-weight: 500; }
+    .dash-novo { font-size: 8.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #4338ca; background: #eef2ff; padding: 2px 7px; border-radius: 20px; }
+    .dash-filters { display: flex; gap: 5px; }
+    .dash-chip { font-size: 10px; font-weight: 600; color: #4b5563; background: #f4f4f5; padding: 4px 10px; border-radius: 999px; }
+    .dash-chip.on { background: #eef2ff; color: #4338ca; }
+    .dash-body { padding: 15px 17px; display: flex; flex-direction: column; gap: 13px; }
+    .dash-kpis { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+    .dash-kpi { border: 1px solid #eef0f3; border-radius: 10px; padding: 8px 10px; }
+    .dash-kpi .k-l { font-size: 8px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #6b7280; }
+    .dash-kpi .k-v { font-size: 16px; font-weight: 700; color: #111; margin-top: 2px; }
+    .dash-kpi .k-v.g { color: #16a34a; }
+    .dash-rings { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .dash-ringcard { border: 1px solid #eef0f3; border-radius: 10px; padding: 11px 12px; display: flex; align-items: center; gap: 11px; }
+    .dash-ringcard .r-lbl { font-size: 9.5px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .03em; }
+    .dash-ringcard .r-val { font-size: 15px; font-weight: 700; color: #16a34a; margin-top: 1px; }
+    .dash-ringcard .r-sub { font-size: 8.5px; color: #9ca3af; margin-top: 1px; }
+    .dash-diverg { border: 1px solid #fde68a; background: #fffbeb; border-radius: 10px; padding: 11px 13px; }
+    .dash-diverg .d-t { font-size: 10.5px; font-weight: 700; color: #92400e; display: flex; align-items: center; gap: 6px; }
+    .dash-diverg .d-x { font-size: 10px; color: #92400e; margin-top: 4px; line-height: 1.4; }
+    .dash-items { display: flex; flex-direction: column; gap: 7px; }
+    .dash-it { display: flex; gap: 9px; align-items: center; border: 1px solid #eef0f3; border-radius: 10px; padding: 7px 9px; }
+    .dash-th { width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0; background: linear-gradient(135deg,#e0e7ff,#c7d2fe); }
+    .dash-it .i-t { font-size: 11px; font-weight: 600; color: #1f2937; line-height: 1.25; }
+    .dash-it .i-m { display: flex; gap: 5px; margin-top: 4px; align-items: center; }
+    .dash-pill { font-size: 8px; font-weight: 600; padding: 1.5px 6px; border-radius: 999px; }
+    .dash-pill.pos { background: #dcfce7; color: #166534; }
+    .dash-pill.neg { background: #fee2e2; color: #991b1b; }
+    .dash-pill.src { background: #f3f4f6; color: #4b5563; }
+
+    /* ─── § FONTES ────────────────────────────────────────────── */
+    .sec-fontes { background: var(--bg-alt); }
+    .ft-tabnav { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin: 6px 0 34px; }
+    .ft-tabbtn { appearance: none; background: #fff; border: 1px solid var(--border); border-radius: 12px; cursor: pointer; font: inherit; font-weight: 600; font-size: .89rem; color: #374151; padding: 10px 17px; transition: all .15s ease; }
+    .ft-tabbtn:hover { border-color: var(--indigo); color: var(--indigo); }
+    .ft-tabbtn.is-active { background: var(--indigo); border-color: var(--indigo); color: #fff; box-shadow: 0 6px 18px rgba(79,70,229,.22); }
+    .ft-panel { display: none; }
+    .ft-panel.is-active { display: block; animation: pqfade .25s ease; }
+    .ft-panel-inner { max-width: 760px; margin: 0 auto; background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 32px 36px; }
+    .ft-block-lbl { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--indigo); margin: 0 0 10px; }
+    .ft-block-lbl.second { margin-top: 22px; }
+    .ft-medimos { font-size: .96rem; color: #374151; }
+    .ft-carac { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+    .ft-carac li { display: flex; gap: 9px; align-items: flex-start; font-size: .93rem; color: #374151; line-height: 1.5; }
+    .ft-carac li svg { flex-shrink: 0; margin-top: 3px; }
 
     /* ─── § COMO FUNCIONA ────────────────────────────────────── */
-    .sec-como { background: var(--bg-alt); }
+    .sec-como { background: var(--bg); }
     .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .step-card {
-      background: #fff; border: 1px solid var(--border);
+      background: var(--bg-alt); border: 1px solid var(--border);
       border-radius: var(--r); padding: 32px;
     }
     .step-num {
@@ -343,40 +404,31 @@
       font-size: 18px; font-weight: 800; margin-bottom: 20px;
     }
     .step-card h3 { margin-bottom: 10px; }
+    .como-nota { text-align: center; margin-top: 34px; font-size: .96rem; color: var(--gray); }
 
     /* ─── § PARA QUEM ────────────────────────────────────────── */
-    .sec-paraquem { background: var(--bg); }
-    .pq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .pq-card {
-      background: var(--bg-alt); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 28px 30px;
-      display: flex; gap: 20px; align-items: flex-start; transition: all .2s;
-    }
-    .pq-card:hover { border-color: var(--indigo); background: #fff; box-shadow: var(--sh); }
-    .pq-icon {
-      width: 46px; height: 46px; background: var(--indigo-lt); border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--indigo); flex-shrink: 0;
-    }
-    .pq-card h3 { margin-bottom: 8px; }
-    .pq-badge {
-      display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 700;
-      letter-spacing: .07em; text-transform: uppercase;
-      background: var(--indigo-lt); color: var(--indigo); padding: 3px 10px; border-radius: 6px;
-    }
+    .sec-paraquem { background: var(--bg-alt); }
+    .pq-tabnav { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:6px 0 34px; }
+    .pq-tabbtn { display:inline-flex; align-items:center; gap:9px; appearance:none; background:#fff; border:1px solid var(--border); border-radius:14px; cursor:pointer; font:inherit; font-weight:600; font-size:.96rem; color:#374151; padding:13px 20px; transition:all .15s ease; }
+    .pq-tabbtn .pq-ic { display:flex; color:var(--indigo); transition:color .15s; }
+    .pq-tabbtn:hover { border-color:var(--indigo); color:var(--indigo); box-shadow:0 4px 14px rgba(79,70,229,.10); transform:translateY(-1px); }
+    .pq-tabbtn.is-active { background:var(--indigo); border-color:var(--indigo); color:#fff; box-shadow:0 6px 18px rgba(79,70,229,.25); }
+    .pq-tabbtn.is-active .pq-ic { color:#fff; }
+    .pq-panel { display:none; }
+    .pq-panel.is-active { display:block; animation:pqfade .25s ease; }
+    @keyframes pqfade { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:none} }
+    .pq-panel-grid { display:grid; grid-template-columns:1fr 1.05fr; gap:40px; align-items:start; }
+    .pq-panel-grid h3 { font-size:1.5rem; line-height:1.2; margin:0 0 14px; letter-spacing:-.01em; }
+    .pq-who { color:#4b5563; font-size:1rem; line-height:1.55; margin:0 0 10px; }
+    .pq-pain { color:#6b7280; font-size:.97rem; line-height:1.55; margin:0 0 22px; }
+    .pq-uselist { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:13px; }
+    .pq-uselist li { display:flex; gap:10px; align-items:flex-start; font-size:.97rem; color:#374151; line-height:1.45; }
+    .pq-uselist svg { flex-shrink:0; margin-top:2px; }
+    .pq-foot { margin-top:28px; text-align:center; color:#6b7280; font-size:.92rem; }
+    .pq-note { font-size: .85rem; color: var(--gray); margin-top: 16px; font-style: italic; }
 
-    /* ─── § SOB MEDIDA ───────────────────────────────────────── */
-    .sec-sob { background: var(--indigo-lt); }
-    .edicoes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 28px; }
-    .edicao-card {
-      background: #fff; border: 1px solid var(--border);
-      border-radius: var(--r); padding: 36px; box-shadow: var(--sh);
-    }
-    .edicao-lbl { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--indigo); margin-bottom: 6px; }
-    .edicao-card h3 { font-size: 1.45rem; margin-bottom: 12px; }
-    .feat-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
-    .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #374151; }
-    .feat-list li svg { flex-shrink: 0; margin-top: 2px; }
+    /* ─── § SERVIÇO GERENCIADO ───────────────────────────────── */
+    .sec-servico { background: var(--indigo-lt); }
     .impl-bar {
       background: #fff; border: 1px solid var(--border); border-radius: var(--r);
       display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden;
@@ -386,24 +438,29 @@
     .impl-n { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--indigo); margin-bottom: 6px; }
     .impl-step h3 { font-size: .95rem; margin-bottom: 6px; }
     .impl-step p { font-size: 13px; color: var(--gray); }
+    .servico-fecho { text-align: center; margin-top: 30px; font-size: 1rem; color: var(--ink); font-weight: 600; }
 
     /* ─── § CONFIANÇA ────────────────────────────────────────── */
     .sec-conf { background: var(--bg); }
-    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .lgpd-band { background: var(--ink); border-radius: 16px; padding: 30px 34px; margin-bottom: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .lgpd-item { display: flex; gap: 13px; align-items: flex-start; }
+    .lgpd-item svg { flex-shrink: 0; color: var(--indigo-ac); margin-top: 2px; }
+    .lgpd-item h3 { color: #fff; font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
+    .lgpd-item p { color: #9ca3af; font-size: 13px; line-height: 1.5; }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .trust-item {
-      display: flex; flex-direction: column; align-items: center; text-align: center;
-      padding: 28px 18px; border: 1px solid var(--border); border-radius: var(--r);
-      gap: 13px; transition: all .2s;
+      padding: 30px 26px; border: 1px solid var(--border); border-radius: var(--r);
+      transition: all .2s;
     }
     .trust-item:hover { box-shadow: var(--sh); border-color: var(--indigo-ac); }
-    .trust-item.is-featured { border-color: var(--indigo); background: var(--indigo-lt); }
     .trust-icon {
       width: 46px; height: 46px; border-radius: 12px; background: var(--indigo-lt);
-      display: flex; align-items: center; justify-content: center; color: var(--indigo);
+      display: flex; align-items: center; justify-content: center; color: var(--indigo); margin-bottom: 16px;
     }
-    .trust-item.is-featured .trust-icon { background: var(--indigo); color: #fff; }
-    .trust-item h3 { font-size: 13.5px; }
-    .trust-item p { font-size: 12.5px; color: var(--gray); line-height: 1.55; }
+    .trust-item h3 { font-size: 1.05rem; margin-bottom: 10px; }
+    .trust-item p { font-size: .93rem; color: var(--gray); line-height: 1.55; }
+    .trust-item p strong { color: var(--ink); }
+    .conf-fecho { margin-top:40px;text-align:center;max-width:780px;margin-left:auto;margin-right:auto;font-size:1.06rem;color:#374151;line-height:1.6; }
 
     /* ─── § FAQ ──────────────────────────────────────────────── */
     .sec-faq { background: var(--bg-alt); }
@@ -475,11 +532,6 @@
     }
     .foot-brand .logo { font-size: 22px; }
     .foot-tagline { color: #9ca3af; font-size: 14px; margin-top: 8px; }
-    .foot-email {
-      display: block; color: var(--indigo-ac); font-size: 14px; margin-top: 16px;
-      transition: color .12s;
-    }
-    .foot-email:hover { color: #fff; }
     .foot-col h4 { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #9ca3af; margin-bottom: 16px; }
     .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .foot-col ul a { font-size: 14px; color: #d1d5db; transition: color .12s; }
@@ -492,155 +544,82 @@
     .footer-bottom a { color: #a5b4fc; font-size: 13px; text-decoration: underline; }
     .footer-bottom a:hover { color: #fff; }
 
-    /* ─── v2: HERO SPLIT ─────────────────────────────────────── */
+    /* ─── HERO SPLIT ──────────────────────────────────────────── */
     .hero-a-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items: start; padding: 56px 0; }
-    .hero-a-grid .hero-badge { margin-bottom: 24px; }
     .hero-a-grid h1 { text-align: left; }
-    .hero-a-grid .hero-sub { text-align: left; margin-left: 0; margin-right: 0; max-width: 470px; }
-    .hero-a-grid .hero-actions { justify-content: flex-start; }
+    .hero-a-grid .hero-sub { text-align: left; margin-left: 0; margin-right: 0; }
+    /* hero tipográfico (sem card) — centralizado */
+    .hero-solo { grid-template-columns: 1fr; max-width: 800px; margin: 0 auto; text-align: center; padding: 80px 0 72px; }
+    .hero-solo h1, .hero-solo .hero-sub { text-align: center; margin-left: auto; margin-right: auto; }
+    .hero-solo .hero-badge { margin-left: auto; margin-right: auto; }
+    .hero-solo .hero-actions { justify-content: center; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* ─── v2: STRIP DE COBERTURA ─────────────────────────────── */
+    /* ─── STRIP DE COBERTURA ─────────────────────────────────── */
     .sec-cobertura { padding: 28px 0; background: var(--bg); border-bottom: 1px solid var(--border); }
     .cob-inner { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
     .cob-lbl { font-size: 12.5px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: .06em; }
     .cob-chip { display: inline-flex; align-items: center; gap: 7px; background: var(--indigo-lt); color: var(--indigo); border: 1px solid #dfe3ff; padding: 7px 15px; border-radius: 30px; font-size: 13.5px; font-weight: 600; }
-
-    /* ─── v2: VANTAGENS POR PERFIL ───────────────────────────── */
-    .sec-vantagens { background: var(--bg-alt); }
-    .vant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-    .vant-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 34px; box-shadow: var(--sh); }
-    .vant-card h3 { font-size: 1.4rem; margin: 6px 0 18px; }
-    .vant-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
-    .vant-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: #374151; line-height: 1.5; }
-    .vant-list li svg { flex-shrink: 0; margin-top: 3px; }
-
-    /* ─── v2: FAIXA LGPD (pilar) ─────────────────────────────── */
-    .lgpd-band { background: var(--ink); border-radius: 16px; padding: 30px 34px; margin-bottom: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .lgpd-item { display: flex; gap: 13px; align-items: flex-start; }
-    .lgpd-item svg { flex-shrink: 0; color: var(--indigo-ac); margin-top: 2px; }
-    .lgpd-item h3 { color: #fff; font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
-    .lgpd-item p { color: #9ca3af; font-size: 13px; line-height: 1.5; }
+    .cob-link { font-size: 13px; font-weight: 600; color: var(--indigo); margin-left: 4px; }
+    .cob-link:hover { text-decoration: underline; }
 
     @media (max-width: 880px) {
       .hero-a-grid { grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
       .hero-a-grid h1, .hero-a-grid .hero-sub { text-align: center; margin-left: auto; margin-right: auto; }
-      .hero-a-grid .hero-actions { justify-content: center; }
-      .hero-a-grid .hero-badge { margin-left: auto; margin-right: auto; }
-      .vant-grid { grid-template-columns: 1fr; }
+      .hero-actions { justify-content: center; }
+      .hero-badge { margin-left: auto; margin-right: auto; }
       .lgpd-band { grid-template-columns: 1fr; gap: 18px; }
       .cob-lbl { display: block; width: 100%; text-align: center; }
+      .prod-grid, .painel-grid, .sat-grid { grid-template-columns: 1fr !important; gap: 34px; }
+      .dash-kpis { grid-template-columns: repeat(2,1fr); }
+      .pq-panel-grid { grid-template-columns:1fr; gap:24px; }
     }
 
+    /* § Sob medida usa 4 colunas — vira 2 e depois 1 no mobile */
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 1024px) {
-      .trust-grid { grid-template-columns: repeat(3, 1fr); }
+      .cards-2x2 { grid-template-columns: repeat(2, 1fr); }
+      .cards-4 { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       section { padding: 64px 0; }
       .nav-links, .nav-cta { display: none; }
       .nav-burger { display: flex; }
-      .hero-a-inner { padding: 60px 0; }
+      /* iOS Safari: backdrop-filter + sticky quebra o hit-test do menu — fundo sólido no mobile */
+      nav.site-nav { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; }
       .hero-sub { font-size: 1.05rem; }
-      .prob-grid,
       .cards-2x2,
-      .modules-grid,
+      .plat-grid,
       .steps-grid,
-      .pq-grid,
-      .edicoes-grid,
+      .trust-grid,
       .cta-grid,
       .footer-grid { grid-template-columns: 1fr; }
-      .trust-grid { grid-template-columns: repeat(2, 1fr); }
       .impl-bar { grid-template-columns: 1fr 1fr; }
       .impl-step:nth-child(2) { border-right: none; }
       .impl-step:nth-child(3),
       .impl-step:nth-child(4) { border-top: 1px solid var(--border); }
       .impl-step:nth-child(4) { border-right: none; }
-      .hero-b-wrap { grid-template-columns: 1fr; padding: 60px 0; }
       .form-row { grid-template-columns: 1fr; }
-      .demanda-strip { flex-direction: column; align-items: flex-start; }
-      .hero-switcher { bottom: 12px; right: 12px; }
+      .fecho-strip { flex-direction: column; align-items: flex-start; }
+      /* mobile: nada deve empurrar a rolagem lateral */
+      .fecho-strip .btn { width: 100%; text-align: center; white-space: normal; }
+      .cta-grid > *, .contact-form input, .contact-form textarea, .contact-form select { min-width: 0; max-width: 100%; }
     }
     @media (max-width: 480px) {
-      .trust-grid { grid-template-columns: 1fr; }
       .impl-bar { grid-template-columns: 1fr; }
       .impl-step { border-right: none !important; border-top: 1px solid var(--border); }
       .impl-step:first-child { border-top: none; }
-    }
-    /* ═══ PARA QUEM — abas de persona ═══ */
-    .pq-tabnav { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:6px 0 34px; }
-    .pq-tabbtn { display:inline-flex; align-items:center; gap:9px; appearance:none; background:#fff; border:1px solid var(--border); border-radius:14px; cursor:pointer; font:inherit; font-weight:600; font-size:.96rem; color:#374151; padding:13px 20px; transition:all .15s ease; }
-    .pq-tabbtn .pq-ic { display:flex; color:var(--indigo); transition:color .15s; }
-    .pq-tabbtn:hover { border-color:var(--indigo); color:var(--indigo); box-shadow:0 4px 14px rgba(79,70,229,.10); transform:translateY(-1px); }
-    .pq-tabbtn.is-active { background:var(--indigo); border-color:var(--indigo); color:#fff; box-shadow:0 6px 18px rgba(79,70,229,.25); }
-    .pq-tabbtn.is-active .pq-ic { color:#fff; }
-    .pq-panel { display:none; }
-    .pq-panel.is-active { display:block; animation:pqfade .25s ease; }
-    @keyframes pqfade { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:none} }
-    .pq-panel-grid { display:grid; grid-template-columns:1fr 1.05fr; gap:40px; align-items:start; }
-    .pq-panel-grid h3 { font-size:1.5rem; line-height:1.2; margin:0 0 14px; letter-spacing:-.01em; }
-    .pq-who { color:#4b5563; font-size:1rem; line-height:1.55; margin:0 0 10px; }
-    .pq-pain { color:#6b7280; font-size:.97rem; line-height:1.55; margin:0 0 22px; }
-    .pq-uselist { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:13px; }
-    .pq-uselist li { display:flex; gap:10px; align-items:flex-start; font-size:.97rem; color:#374151; line-height:1.45; }
-    .pq-uselist svg { flex-shrink:0; margin-top:2px; }
-    .pq-foot { margin-top:28px; text-align:center; color:#6b7280; font-size:.92rem; }
-
-    /* ═══ PORTAL — seção escura + mockup do dashboard ═══ */
-    .sec-portal { background:#0D0D0F; color:#fff; padding:96px 0; }
-    .sec-portal .eyebrow { color:#a5b4fc; }
-    .sec-portal h2 { color:#fff; }
-    .portal-grid { display:grid; grid-template-columns:1fr 1.12fr; gap:48px; align-items:center; margin-top:10px; }
-    .portal-lead { color:#c7c9d1; font-size:1.05rem; line-height:1.6; margin:0 0 28px; }
-    .portal-feats { list-style:none; margin:0; padding:0; display:grid; gap:17px; }
-    .portal-feat { display:flex; gap:13px; align-items:flex-start; }
-    .portal-feat .pf-ic { flex-shrink:0; width:34px; height:34px; border-radius:9px; background:rgba(99,102,241,.18); display:flex; align-items:center; justify-content:center; color:#a5b4fc; }
-    .portal-feat h3 { margin:0 0 3px; font-size:.98rem; color:#fff; }
-    .portal-feat p { margin:0; font-size:.9rem; color:#9ca3af; line-height:1.45; }
-    .portal-soon { display:inline-block; margin-top:26px; font-size:.82rem; color:#a5b4fc; }
-    /* dashboard mock */
-    .dash { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.45); color:#111; }
-    .dash-top { display:flex; align-items:center; justify-content:space-between; padding:13px 17px; border-bottom:1px solid #eef0f3; }
-    .dash-ttl { font-weight:700; font-size:.9rem; }
-    .dash-ttl span { color:#6b7280; font-weight:500; }
-    .dash-filters { display:flex; gap:5px; }
-    .dash-chip { font-size:10px; font-weight:600; color:#4b5563; background:#f4f4f5; padding:4px 10px; border-radius:999px; }
-    .dash-chip.on { background:#eef2ff; color:#4338ca; }
-    .dash-body { padding:15px 17px; display:flex; flex-direction:column; gap:13px; }
-    .dash-kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
-    .dash-kpi { border:1px solid #eef0f3; border-radius:10px; padding:8px 10px; }
-    .dash-kpi .k-l { font-size:8px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#6b7280; }
-    .dash-kpi .k-v { font-size:16px; font-weight:700; color:#111; margin-top:2px; }
-    .dash-kpi .k-v.g { color:#16a34a; }
-    .dash-charts { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
-    .dash-card { border:1px solid #eef0f3; border-radius:10px; padding:10px 12px; }
-    .dash-card .c-t { font-size:10.5px; font-weight:600; color:#374151; margin-bottom:7px; }
-    .dash-legend { display:flex; gap:9px; flex-wrap:wrap; margin-top:7px; }
-    .dash-legend span { font-size:9px; color:#6b7280; display:flex; align-items:center; gap:4px; }
-    .dash-legend i { width:7px; height:7px; border-radius:50%; display:inline-block; }
-    .dash-items { display:flex; flex-direction:column; gap:7px; }
-    .dash-it { display:flex; gap:9px; align-items:center; border:1px solid #eef0f3; border-radius:10px; padding:7px 9px; }
-    .dash-th { width:32px; height:32px; border-radius:7px; flex-shrink:0; background:linear-gradient(135deg,#e0e7ff,#c7d2fe); }
-    .dash-it .i-t { font-size:11px; font-weight:600; color:#1f2937; line-height:1.25; }
-    .dash-it .i-m { display:flex; gap:5px; margin-top:4px; align-items:center; }
-    .dash-pill { font-size:8px; font-weight:600; padding:1.5px 6px; border-radius:999px; }
-    .dash-pill.pos { background:#dcfce7; color:#166534; }
-    .dash-pill.neg { background:#fee2e2; color:#991b1b; }
-    .dash-pill.src { background:#f3f4f6; color:#4b5563; }
-    @media (max-width: 880px) {
-      .pq-panel-grid { grid-template-columns:1fr; gap:24px; }
-      .portal-grid { grid-template-columns:1fr; gap:34px; }
-      .dash-kpis { grid-template-columns:repeat(2,1fr); }
     }
     /* ─── Acessibilidade (WCAG 2.1 AA / eMAG) ─── */
     .skip-link { position:absolute; left:-9999px; top:0; z-index:1000; background:var(--indigo); color:#fff; padding:10px 18px; border-radius:0 0 8px 0; font-weight:600; }
     .skip-link:focus { left:0; }
     :focus-visible { outline:2px solid var(--indigo); outline-offset:2px; border-radius:3px; }
-    .sec-portal :focus-visible, .sec-problema :focus-visible, .sec-cta :focus-visible { outline-color:#fff; }
-    .trust-item.is-featured p { color:#4B5563; }
+    .sec-painel :focus-visible, .sec-problema :focus-visible, .sec-cta :focus-visible { outline-color:#fff; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior:auto; }
-      .pq-panel.is-active { animation:none; }
+      .pq-panel.is-active, .ft-panel.is-active { animation:none; }
       *, *::before, *::after { transition-duration:.01ms !important; animation-duration:.01ms !important; }
     }
   </style>
@@ -656,131 +635,154 @@
           <span style="color:#0D0D0F">Atarax</span><span style="color:#4F46E5">IA</span>
         </a>
         <ul class="nav-links">
-          <li><a href="#produto">Produto</a></li>
-          <li><a href="#portal">Portal</a></li>
+          <li><a href="#satisfacao">Satisfação</a></li>
+          <li><a href="#plataforma">Plataforma</a></li>
+          <li><a href="#fontes">Fontes</a></li>
           <li><a href="#como-funciona">Como funciona</a></li>
           <li><a href="#para-quem">Para quem</a></li>
           <li><a href="#confianca">Confiança</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a href="#contato" class="btn btn-primary nav-cta">Pedir apresentação</a>
+        <a href="#contato" class="btn btn-primary nav-cta">Agendar demonstração</a>
         <button class="nav-burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
     <div class="nav-mobile-menu" id="navMobile">
-      <a href="#produto">Produto</a>
-      <a href="#portal">Portal</a>
+      <a href="#satisfacao">Satisfação</a>
+      <a href="#plataforma">Plataforma</a>
+      <a href="#fontes">Fontes</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#para-quem">Para quem</a>
       <a href="#confianca">Confiança</a>
       <a href="#faq">FAQ</a>
-      <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
+      <a href="#contato" class="btn btn-primary">Agendar demonstração</a>
     </div>
   </nav>
 
   <main id="conteudo">
-  <!-- ══════════════════ HERO A — Centralizado ════════════════ -->
-  <section id="hero" class="hero-a" data-screen-label="Hero A — Centralizado">
+
+  <!-- ══════════════════ 1 — HERO ══════════════════════════════ -->
+  <section id="hero" class="hero-a" data-screen-label="Hero">
     <div class="container">
-      <div class="hero-a-grid">
+      <div class="hero-a-grid hero-solo">
         <div class="hero-a-text">
-        <div class="hero-badge" aria-label="Categoria">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M6 3.5V6.5L8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          Monitoramento hiperlocal &middot; Setor público
-        </div>
-        <h1>Monitoramento hiperlocal para quem governa, faz campanha e se comunica.</h1>
-        <p class="hero-sub">Tudo que falam da sua cidade — filtrado pelo que importa e entregue no horário que você escolher.</p>
-        <div class="hero-actions">
-          <a href="#contato" class="btn btn-primary btn-lg">Pedir apresentação</a>
-          <a href="#produto" class="btn btn-outline btn-lg">Conhecer o produto</a>
-        </div>
-        <p style="font-size:.86rem;color:#4B5563;margin-top:20px;">Monitoramento ativo em municípios do Rio Grande do Sul.</p>
-        </div>
-        <div class="prod-mock" role="img" aria-label="Prévia da Capa Executiva — briefing diário da AtaraxIA">
-          <div class="mock-bar">
-            <div>
-              <div class="mock-bar-name">Capa Executiva</div>
-              <div class="mock-bar-date">Qua, 11 Jun 2026 &nbsp;·&nbsp; Cachoeirinha, RS</div>
-            </div>
-            <div class="mock-live" title="Serviço ativo"></div>
+          <div class="hero-badge" aria-label="Categoria">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M6 3.5V6.5L8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Clipping &middot; Monitoramento de redes &middot; Setor público
           </div>
-          <div class="mock-body">
-            <div>
-              <div class="mock-sec-hd">⚡ Manchete do dia</div>
-              <div class="mock-manchete">Reajuste na tarifa de água gera reação nas redes; Prefeitura cobra a concessionária.</div>
-              <div class="mock-dek">O aumento previsto para julho concentra as menções do dia, enquanto a gestão exige solução para o desabastecimento.</div>
-            </div>
-            <div>
-              <div class="mock-sec-hd">📋 O resumo do dia</div>
-              <div class="mock-resumo"><b>Na imprensa:</b> portais regionais repercutem as cobranças à concessionária e a troca no secretariado.</div>
-              <div class="mock-resumo"><b>Nas redes:</b> a indignação com o reajuste domina o volume de menções.</div>
-            </div>
-            <div>
-              <div class="mock-sec-hd">🔔 Alertas de serviços públicos</div>
-              <div class="mock-card">
-                <div class="mock-card-hd">Concessionária anuncia reajuste de 5,76% na conta de água</div>
-                <div class="mock-meta">
-                  <span class="mock-pill">📍 Toda a cidade</span>
-                  <span class="mock-pill">🏛️ Meio Ambiente</span>
-                </div>
-                <div class="mock-line"><b>🗣️ Voz do Povo:</b> moradores reagem com forte indignação ao novo valor.</div>
-                <div class="mock-radar">🎯 Radar IA · 150 curtidas · 160 comentários &nbsp;—&nbsp; Fonte: portal regional</div>
-              </div>
-            </div>
-            <div>
-              <div class="mock-sec-hd">🏛️ Secretarias impactadas</div>
-              <div class="mock-secs">
-                <span class="mock-sec-chip">Meio Ambiente</span>
-                <span class="mock-sec-chip">Mobilidade</span>
-                <span class="mock-sec-chip">Saúde</span>
-                <span class="mock-sec-chip">Obras</span>
-              </div>
-            </div>
+          <h1>A sua cidade fala o dia inteiro. O que ela diz — e o que ela sente — <span style="color:var(--indigo)">chega pronto para você, todo dia.</span></h1>
+          <p class="hero-sub">Clipping da imprensa, monitoramento das redes e o índice de satisfação da sua cidade — sob o seu critério.</p>
+          <div class="hero-actions">
+            <a href="#contato" class="btn btn-primary btn-lg">Agendar demonstração da sua cidade</a>
+            <a href="#plataforma" class="btn btn-outline btn-lg">Conhecer a plataforma</a>
           </div>
+          <p style="font-size:.86rem;color:#4B5563;margin-top:20px;">Monitoramento ativo em municípios do Rio Grande do Sul.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ 2 — O PROBLEMA ═══════════════════════ -->
-  <!-- ══════════════════ v2 — STRIP DE COBERTURA ════════════ -->
+  <!-- ══════════════════ 2 — FAIXA DE COBERTURA ═══════════════ -->
   <section class="sec-cobertura" aria-label="O que monitoramos">
     <div class="container">
       <div class="cob-inner">
         <span class="cob-lbl">Todo dia, na sua cidade:</span>
-        <span class="cob-chip">📰 Notícias</span>
+        <span class="cob-chip">🌐 Portais de notícia</span>
+        <span class="cob-chip">✍️ Colunistas</span>
         <span class="cob-chip">📸 Instagram</span>
         <span class="cob-chip">👥 Facebook</span>
         <span class="cob-chip">🏘️ Grupos de bairro</span>
         <span class="cob-chip">▶️ YouTube</span>
-        <span class="cob-chip">✍️ Colunistas</span>
-        <span class="cob-chip">🌐 Portais regionais</span>
+        <span class="cob-chip">📻 Rádio e TV (canais oficiais)</span>
+        <a href="#fontes" class="cob-link">Ver tudo o que monitoramos →</a>
       </div>
     </div>
   </section>
 
+  <!-- ══════════════════ 3 — O PROBLEMA ════════════════════════ -->
   <section class="sec-problema" id="problema" data-screen-label="O Problema">
     <div class="container">
-      <div class="prob-grid">
-        <div>
-          <div class="eyebrow">O problema</div>
-          <h2>Uma crise não nasce na capa do jornal.</h2>
-          <blockquote class="prob-quote">
-            "Nasce num grupo de bairro, num comentário, num vídeo gravado na esquina. Quando chega à imprensa, já é tarde."
-          </blockquote>
+      <div class="sec-hd" style="text-align:left;max-width:720px;margin:0;">
+        <div class="eyebrow">O problema</div>
+        <h2>Uma crise não nasce na capa do jornal.</h2>
+      </div>
+      <p style="max-width:720px;">Ela nasce no grupo de bairro, no comentário embaixo do post, na live de um vereador às onze da noite. Quando chega ao jornal, já é tarde — e você foi o último a saber.</p>
+      <div class="prob-cetic">
+        <p><strong>E o único retrato que existe hoje é a pesquisa de opinião — uma foto de um único dia. A cidade não para de falar entre uma pesquisa e outra.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 4 — SOB MEDIDA (cliente) ═════════════ -->
+  <section class="sec-medida" id="sob-medida-cliente" data-screen-label="Sob medida">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">Por que não somos mais um clipping</div>
+        <h2>Dois clientes na mesma cidade. Dois relatórios diferentes.</h2>
+      </div>
+      <p class="medida-lead">Uma ferramenta comum manda o mesmo relatório para todo mundo da mesma cidade. Aqui não. A cidade é lida <strong>uma vez</strong>, de forma neutra — mas o que chega até você é <strong>seu</strong>. Tanto que <strong>a mesma notícia pode ser verde para um cliente e vermelha para outro</strong>: cada um lê a cidade sob os próprios critérios.</p>
+      <div class="cards-2x2 cards-4">
+        <div class="card">
+          <h3 style="font-size:.98rem;">Seus critérios de sentimento</h3>
+          <p style="font-size:.92rem;">O que é elogio, o que é cobrança: quem define é você.</p>
         </div>
-        <div class="prob-right">
-          <p>O gestor é pego de surpresa. O candidato reage atrasado. A assessoria apaga incêndio em vez de antecipar.</p>
-          <p>E o problema não é falta de informação — é excesso. São centenas de posts, perfis e portais por dia, um volume impossível de acompanhar manualmente.</p>
-          <p>As ferramentas que existem ficaram no passado analógico, ou só enxergam a superfície nacional — ignorando justamente onde a opinião se forma: <strong>o local.</strong></p>
+        <div class="card">
+          <h3 style="font-size:.98rem;">Suas palavras-chave</h3>
+          <p style="font-size:.92rem;">O que não pode escapar, não escapa.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:.98rem;">Seu critério escrito</h3>
+          <p style="font-size:.92rem;">Você descreve o que quer; a IA aplica item a item.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:.98rem;">Suas fontes</h3>
+          <p style="font-size:.92rem;">Quer acompanhar um perfil ou portal a mais? A gente inclui.</p>
+        </div>
+      </div>
+      <p class="medida-fecho">Não é um recurso que se liga depois: o sistema nasceu desenhado para isso.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 5 — ALÉM DAS MENÇÕES ═════════════════ -->
+  <section class="sec-alem" id="alem-das-mencoes" data-screen-label="Além das menções">
+    <div class="container">
+      <div class="alem-wrap">
+        <div class="sec-hd" style="margin-bottom:28px;">
+          <div class="eyebrow">Por que não somos mais um monitoramento de redes</div>
+          <h2>Ninguém precisa te marcar para você ficar sabendo.</h2>
+        </div>
+        <div class="alem-copy">
+          <p>As ferramentas comuns de <em>social listening</em> caçam quem citou o seu nome — o arroba da sua marca. A gente vai além: você diz os <strong>temas e serviços</strong> que importam — saúde, obras, transporte, segurança — e trazemos tudo o que a cidade falou sobre eles, <strong>mesmo quando ninguém marcou a prefeitura.</strong></p>
+          <p>É a diferença entre saber que <em>falaram de você</em> e entender <strong>o que acontece na sua cidade</strong>.</p>
+        </div>
+        <div class="alem-example">
+          <p>Um morador reclama do posto de saúde do bairro num grupo de Facebook. Não citou a prefeitura, não marcou ninguém, não virou notícia. Amanhã cedo, isso está no seu relatório — na seção de Saúde.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ 3 — DIFERENCIAIS ═════════════════════ -->
+  <!-- ══════════════════ 5b — SATISFAÇÃO DA CIDADE ════════════ -->
+  <section class="sec-satisfacao" id="satisfacao" data-screen-label="Satisfação da cidade">
+    <div class="container">
+      <div class="sec-hd" style="text-align:left;max-width:760px;margin:0;">
+        <div class="eyebrow">O que ninguém mais mede</div>
+        <h2>Qual é a satisfação da sua cidade hoje?</h2>
+      </div>
+      <p class="prod-lead" style="max-width:760px;margin-top:18px;"><strong>Ninguém precisa ser entrevistado:</strong> a cidade já diz o que pensa todos os dias — nas notícias, nos posts, nos comentários públicos.</p>
+      <p class="prod-lead" style="max-width:760px;">A nossa IA lê tudo isso e transforma no <strong>índice de satisfação da cidade</strong>: por tema e por secretaria, com a evolução no tempo. Quando a nota de um tema começa a cair, você vê a história antes de virar crise.</p>
+      <p class="prod-lead" style="max-width:760px;">E separamos <strong>o que a publicação diz</strong> do que <strong>os comentários respondem</strong>: a matéria elogiosa que a população contesta, a crítica que os próprios moradores rebatem. No <strong>Mapa da Reação</strong>, cada combinação tem nome — e cada número leva ao item original.</p>
+      <figure class="shot">
+        <img src="prints/satisfacao-mapa-reacao.png" alt="Mapa da Reação: matriz publicação × reação, com elogio confirmado, elogio contestado, crítica rebatida e crítica confirmada — exemplo ilustrativo com dados fictícios.">
+        <figcaption>Mapa da Reação — publicação × reação, cada célula com nome. Exemplo ilustrativo, dados fictícios.</figcaption>
+      </figure>
+      <p class="sat-selo" style="max-width:760px;">Índice estimado do que a cidade publica e comenta — sem amostra, sem margem de erro, sem entrevista.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 6 — DIFERENCIAIS ═════════════════════ -->
   <section class="sec-dif" id="diferenciais" data-screen-label="Diferenciais">
     <div class="container">
       <div class="sec-hd">
@@ -790,220 +792,341 @@
       <div class="cards-2x2">
         <div class="card">
           <div class="card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor" opacity=".18"/><path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.7" fill="none"/><circle cx="11" cy="9" r="2.5" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.7" fill="none"/><circle cx="11" cy="9" r="2.5" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
           </div>
-          <h3>Monitoramos o bairro, não a marca nacional.</h3>
-          <p>Não monitoramos "a marca no Brasil". Monitoramos a sua cidade por dentro: o bairro, a associação de moradores, o colunista local, o podcast e o portal regional. E não ficamos só nas fontes que você cadastra: também varremos as redes por menção, localização e palavra-chave.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M7 11h8M7 7.5h5M7 14.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-          </div>
-          <h3>Editorial sob medida.</h3>
-          <p>A mesma cidade gera notícias diferentes para clientes diferentes. Nossa IA aprende o que importa para você e fala na sua linguagem — a de uma prefeitura não é a de um mandato. Você recebe sinal, não ruído.</p>
+          <h3>O bairro pesa mais que o país.</h3>
+          <p>Uma cratera na sua rua vale mais que uma manchete nacional. Nossa régua é a sua cidade — não o Brasil.</p>
         </div>
         <div class="card">
           <div class="card-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 11.5l2.5 2.5 4-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h3>A Voz do Povo, lida por inteiro.</h3>
-          <p>Transcrevemos áudios e vídeos e lemos o texto dentro de imagens e cartazes, medimos o sentimento e o peso real do engajamento. E quando o post comemora mas os comentários reclamam, viramos o sinal: vira alerta, não elogio.</p>
+          <h3>Voz do Povo.</h3>
+          <p>A matéria pode ser elogiosa e os comentários virarem contra. Medimos o tom da publicação <strong>e</strong> o tom da reação — separados.</p>
+          <span class="card-challenge">Dois tons medidos, nunca um só.</span>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M7 11h8M7 7.5h5M7 14.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Lemos o que os outros não leem.</h3>
+          <p>Texto, imagem, áudio e vídeo: transcrevemos a live, lemos o card do post, o carrossel inteiro e o corpo da notícia — não só o título.</p>
         </div>
         <div class="card">
           <div class="card-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 17.5l4-4.5 3.5 3 4-5.5 4.5 7H3z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h3>Qualidade, não volume.</h3>
-          <p>Muitas ferramentas se orgulham de monitorar “um milhão de fontes”. A AtaraxIA se mede por relevância: as menções que realmente impactam a sua cidade. Publicidade, conteúdo irrelevante e notícias nacionais sem conexão local são descartados antes de chegarem até você.</p>
+          <h3>Triagem implacável.</h3>
+          <p>Você recebe pouco e bom. O que não interessa morre antes de chegar até você.</p>
         </div>
         <div class="card">
           <div class="card-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M11 6.5V11l3 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
           </div>
-          <h3>Você nunca recebe a mesma notícia duas vezes.</h3>
-          <p>Cada manchete que chega à sua mesa é nova. Nada de item repetido nem de notícia já vista voltando — só o que é novo na sua cidade.</p>
+          <h3>Nunca a mesma notícia duas vezes.</h3>
+          <p>O que você já leu ontem não volta amanhã.</p>
         </div>
         <div class="card">
           <div class="card-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="7" cy="8" r="3" stroke="currentColor" stroke-width="1.7"/><circle cx="15" cy="8" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M2.5 18c0-2 1.6-3.6 3.6-3.6S9.7 16 9.7 18M12.3 18c0-2 1.6-3.6 3.6-3.6S19.5 16 19.5 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
           </div>
           <h3>Sem bolha.</h3>
-          <p>Mapeamos aliados e oposição. Você não escuta só quem te aplaude — ouve quem te critica antes de o problema crescer.</p>
+          <p>Mapeamos aliados e oposição. Você vê a cidade inteira — não só o que agrada.</p>
+        </div>
+      </div>
+      <figure class="shot shot-narrow">
+        <img src="prints/voz-do-povo.png" alt="Cartões de itens em que a publicação é positiva mas os comentários reagem negativamente — a Voz do Povo. Exemplo ilustrativo com dados fictícios.">
+        <figcaption>A publicação de um lado, a reação do público do outro — medidos separados. Exemplo ilustrativo, dados fictícios.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 7 — A PLATAFORMA ══════════════════════ -->
+  <section class="sec-plataforma" id="plataforma" data-screen-label="A plataforma">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">A plataforma</div>
+        <h2>Três entregas. Duas leituras. Uma contratação.</h2>
+        <p class="sec-lead">A mesma inteligência da sua cidade chega de três formas — e você pode ler pela imprensa (o clipping) ou pela reação da população (o monitoramento de redes). Tudo no mesmo pacote.</p>
+      </div>
+      <div class="plat-grid">
+        <div class="plat-card">
+          <div class="plat-num">Entrega 1 &middot; leitura: clipping</div>
+          <h3>Clipping</h3>
+          <p class="plat-tagline"><a href="#clipping" style="color:inherit;">Ver detalhes →</a></p>
+          <p>Tudo o que falaram da sua cidade, item a item, todo dia — com uma riqueza que nenhum clipping tem.</p>
+        </div>
+        <div class="plat-card">
+          <div class="plat-num">Entrega 2 &middot; leitura: monitoramento de redes / opinião pública</div>
+          <h3>Panorama do Dia</h3>
+          <p class="plat-tagline"><a href="#panorama" style="color:inherit;">Ver detalhes →</a></p>
+          <p>O curado: o que você não pode deixar de ver, em uma página.</p>
+        </div>
+        <div class="plat-card">
+          <div class="plat-num">Entrega 3 &middot; leitura: os dois</div>
+          <h3>Painel de Monitoramento</h3>
+          <p class="plat-tagline"><a href="#painel" style="color:inherit;">Ver detalhes →</a></p>
+          <p>O histórico navegável: 7 dias, 30 dias, do jeito que você quiser consultar.</p>
+        </div>
+      </div>
+      <div class="fecho-strip">
+        <p>Entregues juntos, no mesmo pacote.<span>Sem tabela de planos: cada cidade é configurada sob medida.</span></p>
+        <a href="#contato" class="btn btn-white btn-lg">Agendar demonstração da sua cidade</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 8 — PRODUTO: CLIPPING ═════════════════ -->
+  <section class="sec-produto1" id="clipping" data-screen-label="Clipping">
+    <div class="container">
+      <div class="prod-grid">
+        <div>
+          <div class="eyebrow">Entrega 1 &middot; diário, no seu e-mail</div>
+          <h2>Todo dia, tudo que falaram da sua cidade.</h2>
+          <p class="prod-lead">O clipping completo: <strong>toda</strong> publicação coletada na cidade que passou no <strong>seu</strong> critério. Imprensa e redes sociais no mesmo relatório. Se dois portais falaram do mesmo assunto, os dois estão lá — cobertura é isso.</p>
+          <p style="font-size:.95rem;color:#6b7280;">E cada item vem com o que um clipping comum não te dá.</p>
+        </div>
+        <div>
+          <div class="feat-list-title">O que vem em cada item</div>
+          <ul class="feat-list">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Título e resumo editorial — não é recorte cru.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Sentimento da publicação e sentimento dos comentários, separados.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Voz do Povo — a síntese do que a população respondeu.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Alcance, curtidas e comentários.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Fonte, link e data — tudo rastreável.</li>
+          </ul>
+          <div class="feat-list-title">E a visão do dia</div>
+          <ul class="feat-list">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Os termômetros do dia — quanto se falou, e em que tom.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Quantidades por tema.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Distribuição de sentimento.</li>
+          </ul>
+          <div class="prod-fecho">Outros clippings te mandam a notícia. O nosso te manda a notícia, o número, o tom <strong>e</strong> a reação — de imprensa e de redes.</div>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="prints/clipping-termometros.png" alt="Resumo do dia: itens por tipo de fonte e os termômetros de sentimento de redes sociais e imprensa — exemplo ilustrativo com dados fictícios.">
+        <figcaption>Os termômetros do dia — quanto se falou e em que tom, separando redes de imprensa. Exemplo ilustrativo, dados fictícios.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 9 — PRODUTO: PANORAMA DO DIA ══════════ -->
+  <section class="sec-produto2" id="panorama" data-screen-label="Panorama do Dia">
+    <div class="container">
+      <div class="prod-grid">
+        <div>
+          <div class="eyebrow">Entrega 2 &middot; diário, antes do café</div>
+          <h2>As decisões do dia cabem em uma página.</h2>
+          <p class="prod-lead">Se o Clipping traz tudo, o <strong>Panorama do Dia</strong> traz o que você não pode deixar de ver: as notícias mais importantes, sintetizadas, <strong>sem repetição</strong> e organizadas pelos temas que importam a você.</p>
+          <p style="font-size:.95rem;color:#6b7280;">É a capa de jornal da sua gestão — e o que dói para o cidadão vai para o topo.</p>
+        </div>
+        <div>
+          <div class="feat-list-title">O que tem dentro</div>
+          <ul class="feat-list">
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> A manchete do dia e o resumo em duas frentes: na imprensa e nas redes sociais.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Alertas de serviços públicos — o que a cidade está cobrando agora.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Secretarias impactadas — cada assunto já chega endereçado à pasta certa.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Entregas e pautas positivas — o que jogou a favor.</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Voz do Povo por assunto.</li>
+          </ul>
+          <div class="prod-fecho">Cinco minutos de leitura. O dia inteiro de vantagem.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ 4 — O QUE ENTREGA ════════════════════ -->
-  <section class="sec-produto" id="produto" data-screen-label="O que entrega">
+  <!-- ══════════════════ 10 — PRODUTO: PAINEL ══════════════════ -->
+  <section class="sec-painel" id="painel" data-screen-label="Painel de Monitoramento">
     <div class="container">
-      <div class="sec-hd">
-        <div class="eyebrow">O que a AtaraxIA entrega</div>
-        <h2>Três módulos, uma leitura completa da sua cidade.</h2>
-        <p style="color:#6B7280;font-size:1.02rem;margin-top:8px;">O que a sua assessoria garimparia em dezenas de grupos, portais e perfis — lido, filtrado e resumido numa página só.</p>
+      <div class="sec-hd" style="text-align:left;max-width:none;margin:0 0 10px;">
+        <div class="eyebrow">Entrega 3 &middot; quando você quiser</div>
+        <h2>O dia a dia vira histórico. E o histórico vira decisão.</h2>
       </div>
-      <div class="modules-grid">
-        <div class="module-card">
-          <div class="mod-num">Módulo 01</div>
-          <h3>Radar</h3>
-          <p class="mod-tagline">o seu clipping hiperlocal</p>
-          <p>Varre notícias, Instagram, Facebook e seus grupos públicos de bairro, YouTube, colunistas e portais da sua cidade — e entrega só o que passou pelo filtro editorial. Cada item vem com contexto, sentimento e relevância.</p>
-        </div>
-        <div class="module-card">
-          <div class="mod-num">Módulo 02</div>
-          <h3>A Capa Executiva</h3>
-          <p class="mod-tagline">o briefing que a liderança lê antes do café</p>
-          <p>Por cima do clipping, um briefing que se lê em 5 minutos: a manchete do dia, os alertas, as entregas da gestão, a movimentação política e a Voz do Povo. O panorama que a liderança precisa.</p>
-        </div>
-        <div class="module-card">
-          <div class="mod-num">Módulo 03</div>
-          <h3>O Portal</h3>
-          <p class="mod-tagline">o seu acervo, pesquisável por significado</p>
-          <p>Uma área para consultar todo o histórico — por tema, período, bairro ou nome — com busca por significado, não só palavra exata. Tudo o que já passou pela sua cidade, a um clique. <a href="#portal" style="color:var(--indigo);font-weight:600;text-decoration:none;">Ver o Portal →</a></p>
-        </div>
-      </div>
-      <div class="demanda-strip">
+      <div class="painel-grid">
         <div>
-          <h3>Serviços sob demanda</h3>
-          <p>Expanda conforme a necessidade.</p>
-          <div class="chips">
-            <span class="chip">Alertas de crise</span>
-            <span class="chip">Monitoramento de hora em hora</span>
-            <span class="chip">No horário que você quiser</span>
-          </div>
-        </div>
-        <a href="#contato" class="btn btn-white btn-lg">Pedir apresentação</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════ v3 — PORTAL (acervo navegável) ═══════ -->
-  <section class="sec-portal" id="portal" data-screen-label="O Portal">
-    <div class="container">
-      <div class="sec-hd">
-        <div class="eyebrow">O Portal</div>
-        <h2>Toda a sua cidade, num lugar só.</h2>
-      </div>
-      <div class="portal-grid">
-        <div>
-          <p class="portal-lead">O Radar e a Capa chegam todo dia no seu e-mail. O Portal guarda tudo: uma área onde você consulta o histórico da sua cidade quando quiser — com uma busca que entende o que você quer dizer, não só a palavra que você digitou.</p>
-          <ul class="portal-feats">
-            <li class="portal-feat">
-              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-              <div><h3>Histórico consolidado</h3><p>A semana — ou o mês — inteiro da sua cidade. Não só o e-mail de hoje.</p></div>
+          <p class="painel-lead">O Clipping e o Panorama são <strong style="color:#fff;">do dia</strong>. O Painel é a <strong style="color:#fff;">memória da sua cidade</strong>: últimos 7 dias, 30 dias ou o período que você escolher. Ali você consulta do seu jeito — só os itens críticos, só uma rede, só uma fonte, um tema, uma palavra. E vê o clima da cidade em gráficos.</p>
+          <ul class="painel-telas">
+            <li class="painel-tela">
+              <span class="pt-ic"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M3 16V9M8 16V4M13 16v-5M18 16V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <div><h3>Visão geral</h3><p>Os números do período, o termômetro de satisfação da cidade e os temas sensíveis — o que precisa da sua atenção primeiro.</p></div>
             </li>
-            <li class="portal-feat">
-              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-              <div><h3>Busca por significado</h3><p>Procure por ideia, não por termo exato: "saúde" traz tudo que é de saúde, mesmo sem a palavra.</p></div>
+            <li class="painel-tela">
+              <span class="pt-ic"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M7 10.5l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div><h3>Satisfação</h3><p>O índice por tema e por secretaria, a evolução no tempo e o Mapa da Reação — publicação × comentários, célula por célula.</p></div>
             </li>
-            <li class="portal-feat">
-              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.7 2 4 4.7 4 8c0 4 6 10 6 10s6-6 6-10c0-3.3-2.7-6-6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.6"/></svg></span>
-              <div><h3>Filtre por bairro, nome ou fonte</h3><p>Veja o que falaram de um bairro, de uma pessoa ou de uma fonte específica.</p></div>
+            <li class="painel-tela">
+              <span class="pt-ic"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <div><h3>Pesquisa</h3><p>O acervo inteiro, buscável por assunto e até pela reação — só os itens em que os comentários viraram contra, por exemplo.</p></div>
             </li>
-            <li class="portal-feat">
-              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M3 16V9M8 16V4M13 16v-5M18 16V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-              <div><h3>Dashboard com gráficos</h3><p>O humor da cidade e os temas que dominam, no período que você escolher.</p></div>
+            <li class="painel-tela">
+              <span class="pt-ic"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 8h14" stroke="currentColor" stroke-width="1.6"/></svg></span>
+              <div><h3>Panorama do dia</h3><p>A capa de qualquer data.</p></div>
             </li>
-            <li class="portal-feat">
-              <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-              <div><h3>Transparência total</h3><p>Veja exatamente como o seu monitoramento está configurado: fontes, cidades e critérios.</p></div>
+            <li class="painel-tela">
+              <span class="pt-ic"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <div><h3>Meus dados</h3><p>A sua configuração: temas, fontes e os seus critérios de sentimento.</p></div>
             </li>
           </ul>
-          <span class="portal-soon">Tudo o que já passou pela sua cidade, sempre a um clique — e cada vez mais inteligente.</span>
+          <span class="painel-selo">Novo — em implantação com os primeiros clientes.</span>
+          <div class="painel-cta">
+            <p>Quer ver tudo isso com os dados da <strong>sua</strong> cidade?</p>
+            <a href="#contato" class="btn btn-primary">Agendar demonstração da sua cidade</a>
+          </div>
         </div>
-        <div class="dash" role="img" aria-label="Prévia do Portal AtaraxIA — painel do cliente">
-          <div class="dash-top">
-            <div class="dash-ttl">Portal AtaraxIA <span>&middot; Cachoeirinha, RS</span></div>
-            <div class="dash-filters">
-              <span class="dash-chip">Hoje</span>
-              <span class="dash-chip on">7 dias</span>
-              <span class="dash-chip">30 dias</span>
-            </div>
-          </div>
-          <div class="dash-body">
-            <div class="dash-kpis">
-              <div class="dash-kpi"><div class="k-l">Itens</div><div class="k-v">312</div></div>
-              <div class="dash-kpi"><div class="k-l">Aprovados</div><div class="k-v g">68%</div></div>
-              <div class="dash-kpi"><div class="k-l">Fontes</div><div class="k-v">47</div></div>
-              <div class="dash-kpi"><div class="k-l">Alertas</div><div class="k-v">3</div></div>
-            </div>
-            <div class="dash-charts">
-              <div class="dash-card">
-                <div class="c-t">Sentimento &middot; 7 dias</div>
-                <svg viewBox="0 0 70 70" width="100%" height="64" role="img" aria-label="Pizza de sentimento">
-                  <g transform="rotate(-90 35 35)" fill="none" stroke-width="10">
-                    <circle cx="35" cy="35" r="22" stroke="#16a34a" stroke-dasharray="82.9 138.2" stroke-dashoffset="0"/>
-                    <circle cx="35" cy="35" r="22" stroke="#dc2626" stroke-dasharray="34.5 138.2" stroke-dashoffset="-82.9"/>
-                    <circle cx="35" cy="35" r="22" stroke="#9ca3af" stroke-dasharray="20.7 138.2" stroke-dashoffset="-117.4"/>
-                  </g>
-                </svg>
-                <div class="dash-legend"><span><i style="background:#16a34a"></i>Positivo</span><span><i style="background:#dc2626"></i>Negativo</span><span><i style="background:#9ca3af"></i>Neutro</span></div>
-              </div>
-              <div class="dash-card">
-                <div class="c-t">Volume por dia</div>
-                <svg viewBox="0 0 140 56" width="100%" height="64" role="img" aria-label="Volume de itens por dia">
-                  <g fill="#c7d2fe">
-                    <rect x="6" y="30" width="11" height="22" rx="2"/>
-                    <rect x="25" y="22" width="11" height="30" rx="2"/>
-                    <rect x="44" y="34" width="11" height="18" rx="2"/>
-                    <rect x="63" y="14" width="11" height="38" rx="2" fill="#818cf8"/>
-                    <rect x="82" y="26" width="11" height="26" rx="2"/>
-                    <rect x="101" y="10" width="11" height="42" rx="2" fill="#818cf8"/>
-                    <rect x="120" y="20" width="11" height="32" rx="2"/>
-                  </g>
-                </svg>
-              </div>
-            </div>
-            <div class="dash-items">
-              <div class="dash-it">
-                <div class="dash-th"></div>
-                <div><div class="i-t">Reajuste na tarifa de água repercute nas redes</div><div class="i-m"><span class="dash-pill neg">negativo</span><span class="dash-pill src">Portal regional</span></div></div>
-              </div>
-              <div class="dash-it">
-                <div class="dash-th"></div>
-                <div><div class="i-t">Nova praça do Bairro dos Lagos é elogiada pelos moradores</div><div class="i-m"><span class="dash-pill pos">positivo</span><span class="dash-pill src">Instagram</span></div></div>
-              </div>
-            </div>
-          </div>
+        <div class="painel-shots">
+          <figure>
+            <img src="prints/painel-tema-tempo.png" alt="Mapa Tema × Tempo: nota de cada secretaria em cada relatório, ao longo das semanas — exemplo ilustrativo com dados fictícios.">
+            <figcaption>Tema × Tempo — a nota de cada secretaria, relatório a relatório. Exemplo ilustrativo, dados fictícios.</figcaption>
+          </figure>
+          <figure>
+            <img src="prints/painel-satisfacao.png" alt="Índice de satisfação da cidade ao longo do tempo — exemplo ilustrativo com dados fictícios.">
+            <figcaption>O índice de satisfação, acompanhado no tempo.</figcaption>
+          </figure>
+          <figure>
+            <img src="prints/painel-topicos.png" alt="Nuvem dos termos mais falados na cidade — exemplo ilustrativo com dados fictícios.">
+            <figcaption>O que a cidade mais falou no período.</figcaption>
+          </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ 5 — COMO FUNCIONA ════════════════════ -->
+  <!-- ══════════════════ 11 — FONTES ═══════════════════════════ -->
+  <section class="sec-fontes" id="fontes" data-screen-label="Fontes">
+    <div class="container">
+      <div class="sec-hd">
+        <div class="eyebrow">Fontes</div>
+        <h2>De onde vem tudo isso.</h2>
+        <p class="sec-lead">No período de implantação, mapeamos as fontes da sua cidade — uma a uma. Depois, é todo dia.</p>
+      </div>
+      <figure class="shot" style="margin-bottom:44px;">
+        <img src="prints/fontes-vinculadas.png" alt="Tela de fontes vinculadas do painel: Instagram, Facebook, Notícias e YouTube, com a contagem de cada rede — exemplo ilustrativo com dados fictícios.">
+        <figcaption>As fontes vinculadas à sua cidade, no seu painel — tudo à vista. Exemplo ilustrativo, dados fictícios.</figcaption>
+      </figure>
+      <div class="ft-tabnav" role="tablist" aria-label="Selecione a fonte">
+        <button class="ft-tabbtn is-active" data-ft="portais" role="tab" aria-selected="true">Portais de notícia</button>
+        <button class="ft-tabbtn" data-ft="colunistas" role="tab" aria-selected="false">Colunistas</button>
+        <button class="ft-tabbtn" data-ft="instagram" role="tab" aria-selected="false">Instagram</button>
+        <button class="ft-tabbtn" data-ft="facebook" role="tab" aria-selected="false">Facebook</button>
+        <button class="ft-tabbtn" data-ft="grupos" role="tab" aria-selected="false">Grupos de bairro</button>
+        <button class="ft-tabbtn" data-ft="youtube" role="tab" aria-selected="false">YouTube</button>
+        <button class="ft-tabbtn" data-ft="radiotv" role="tab" aria-selected="false">Rádio e TV</button>
+      </div>
+
+      <div class="ft-panel is-active" id="ft-portais" role="tabpanel">
+        <div class="ft-panel-inner">
+          <div class="ft-block-lbl">O que medimos</div>
+          <p class="ft-medimos">Peso da fonte · valor estimado de mídia · alcance · visualizações.</p>
+          <div class="ft-block-lbl second">Características</div>
+          <ul class="ft-carac">
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Cobertura completa: se dois portais falaram do mesmo assunto, os dois entram.</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Portais nacionais e regionais, lidos pelo corpo da notícia — não só o título.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-panel" id="ft-colunistas" role="tabpanel" hidden>
+        <div class="ft-panel-inner">
+          <div class="ft-block-lbl">O que medimos</div>
+          <p class="ft-medimos">Peso da fonte · valor estimado de mídia · alcance.</p>
+          <div class="ft-block-lbl second">Características</div>
+          <ul class="ft-carac">
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Colunas e opinião de quem influencia a conversa local.</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Autoria identificada, mesmo em textos multiautor.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-panel" id="ft-instagram" role="tabpanel" hidden>
+        <div class="ft-panel-inner">
+          <div class="ft-block-lbl">O que medimos</div>
+          <p class="ft-medimos">Peso da fonte · alcance · visualizações.</p>
+          <div class="ft-block-lbl second">Características</div>
+          <ul class="ft-carac">
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Lemos o carrossel inteiro, não só a capa.</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> O texto dentro da imagem (OCR).</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> A reação nos comentários.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-panel" id="ft-facebook" role="tabpanel" hidden>
+        <div class="ft-panel-inner">
+          <div class="ft-block-lbl">O que medimos</div>
+          <p class="ft-medimos">Peso da fonte · alcance · visualizações.</p>
+          <div class="ft-block-lbl second">Características</div>
+          <ul class="ft-carac">
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Páginas públicas de perfis, veículos e órgãos.</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> A reação nos comentários, lida e resumida.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-panel" id="ft-grupos" role="tabpanel" hidden>
+        <div class="ft-panel-inner">
+          <div class="ft-block-lbl">O que medimos</div>
+          <p class="ft-medimos">Peso da fonte · alcance.</p>
+          <div class="ft-block-lbl second">Características</div>
+          <ul class="ft-carac">
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Onde a crise nasce, antes de virar notícia.</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Só grupos públicos — nunca fechados.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-panel" id="ft-youtube" role="tabpanel" hidden>
+        <div class="ft-panel-inner">
+          <div class="ft-block-lbl">O que medimos</div>
+          <p class="ft-medimos">Peso da fonte · alcance · visualizações.</p>
+          <div class="ft-block-lbl second">Características</div>
+          <ul class="ft-carac">
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Transcrevemos legendas e áudio — a live de duas horas vira texto pesquisável.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ft-panel" id="ft-radiotv" role="tabpanel" hidden>
+        <div class="ft-panel-inner">
+          <div class="ft-block-lbl">O que medimos</div>
+          <p class="ft-medimos">Peso da fonte · valor estimado de mídia.</p>
+          <div class="ft-block-lbl second">Características</div>
+          <ul class="ft-carac">
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Pelos canais oficiais das emissoras — sites, portais e páginas públicas.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 12 — COMO FUNCIONA ════════════════════ -->
   <section class="sec-como" id="como-funciona" data-screen-label="Como funciona">
     <div class="container">
       <div class="sec-hd">
         <div class="eyebrow">Como funciona</div>
-        <h2>Do mapa da cidade à sua caixa de entrada.</h2>
+        <h2>Você escolhe a cidade. A gente cuida do resto.</h2>
       </div>
       <div class="steps-grid">
         <div class="step-card">
           <div class="step-num" aria-label="Passo 1">1</div>
-          <h3>Configuramos a sua cidade.</h3>
-          <p>Mapeamos as fontes que importam e calibramos o que é notícia para o seu perfil. No ar em poucos dias, sem você instalar nada.</p>
+          <h3>Você escolhe a(s) cidade(s).</h3>
+          <p>Uma prefeitura acompanha o seu município. Um deputado acompanha a sua região inteira — quantas cidades precisar.</p>
         </div>
         <div class="step-card">
           <div class="step-num" aria-label="Passo 2">2</div>
-          <h3>A IA monitora e filtra.</h3>
-          <p>Todos os dias varre as fontes — e as redes além delas —, lê texto, áudio, vídeo e comentários, e separa só o relevante.</p>
+          <h3>Mapeamos a cidade toda.</h3>
+          <p>Prefeito, ex-prefeitos, todos os vereadores, mídias locais, colunistas, influenciadores, associações de bairro e sindicatos. Sem lado.</p>
         </div>
         <div class="step-card">
           <div class="step-num" aria-label="Passo 3">3</div>
-          <h3>Você recebe pronto.</h3>
-          <p>Radar e Capa Executiva chegam no e-mail, no horário que escolher — e tudo fica no Portal.</p>
+          <h3>Você recebe só o que é seu.</h3>
+          <p>Todo dia, no horário que escolher: o seu critério aplicado ao que a cidade falou.</p>
         </div>
       </div>
+      <p class="como-nota">Contratação <strong>por cidade</strong> — quantas você precisar. No ar em poucos dias.</p>
     </div>
   </section>
 
-  <!-- ══════════════════ 6 — PARA QUEM ════════════════════════ -->
+  <!-- ══════════════════ 13 — PARA QUEM ════════════════════════ -->
   <section class="sec-paraquem" id="para-quem" data-screen-label="Para quem">
     <div class="container">
       <div class="sec-hd">
         <div class="eyebrow">Para quem</div>
         <h2>Quem usa a AtaraxIA todo dia.</h2>
-        <p style="color:#6B7280;font-size:1.02rem;margin-top:8px;">A AtaraxIA atende quem cuida da reputação pública — na gestão, na disputa ou na agência. Veja o que muda para o seu caso:</p>
       </div>
       <div class="pq-tabs">
         <div class="pq-tabnav" role="tablist" aria-label="Selecione o seu perfil">
@@ -1016,15 +1139,16 @@
         <div class="pq-panel is-active" id="pq-com" role="tabpanel">
           <div class="pq-panel-grid">
             <div>
-              <h3>Para a comunicação da prefeitura</h3>
+              <h3>A pauta de hoje é o que a cidade falou ontem.</h3>
               <p class="pq-who"><strong>Secretário de comunicação e a equipe de imprensa</strong> — quem produz as notícias da cidade.</p>
-              <p class="pq-pain">Você precisa saber o que a cidade falou para montar a pauta de hoje — sem garimpar dezenas de portais e grupos no olho.</p>
+              <p class="pq-pain">Você não recebe o clipping genérico da cidade: recebe o que vira a <strong>sua</strong> pauta, do jeito que você configurou — sem garimpar portal e grupo no olho.</p>
               <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
             </div>
             <ul class="pq-uselist">
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Radar diário com tudo que passou na sua cidade.</li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Capa Executiva com os assuntos do dia e a Voz do Povo.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Clipping diário com tudo que passou na sua cidade.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Panorama do Dia com os assuntos e a Voz do Povo.</li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> As fontes que você cadastrou, lidas e resumidas para você.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> O termômetro do que a cidade sente sobre cada tema — insumo pronto para a próxima campanha institucional.</li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Pauta na mão — e base para a próxima nota oficial.</li>
             </ul>
           </div>
@@ -1033,15 +1157,16 @@
         <div class="pq-panel" id="pq-gov" role="tabpanel" hidden>
           <div class="pq-panel-grid">
             <div>
-              <h3>Para o gabinete e a articulação do governo</h3>
+              <h3>Cada secretaria tem o seu termômetro.</h3>
               <p class="pq-who"><strong>O núcleo político da gestão</strong> — vice-prefeito e a equipe dedicada a acompanhar a opinião pública.</p>
-              <p class="pq-pain">Você monitora o que se fala sobre o governo para <strong>agir antes que vire crise</strong> — não para criar pauta.</p>
+              <p class="pq-pain">Veja o que a cidade cobra de saúde, de obras, de transporte — endereçado à pasta certa, antes de virar crise. E sem depender de alguém marcar a prefeitura.</p>
               <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
             </div>
             <ul class="pq-uselist">
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Alertas do que está pegando fogo na cidade, em primeiro lugar.</li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Assuntos separados por secretaria — saiba a qual pasta cada cobrança pertence.</li>
-              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Direcione internamente: avise o secretário certo, no momento certo.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> O índice de satisfação da cidade por secretaria, com a evolução — a nota de uma pasta caiu, você age antes da crise.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Temas e serviços monitorados — mesmo sem citação à prefeitura.</li>
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Imprensa, colunistas, redes e grupos de bairro num só lugar.</li>
             </ul>
           </div>
@@ -1050,67 +1175,27 @@
         <div class="pq-panel" id="pq-camp" role="tabpanel" hidden>
           <div class="pq-panel-grid">
             <div>
-              <h3>Para a campanha e o mandato</h3>
+              <h3>Ouça a cidade e responda na hora certa.</h3>
               <p class="pq-who"><strong>Candidatos e eleitos</strong> — vereador, prefeito, deputado — e quem coordena a comunicação.</p>
-              <p class="pq-pain">Você precisa ouvir a rua em tempo real, acompanhar a disputa e achar a pauta antes do concorrente.</p>
-              <ul class="pq-uselist" style="margin:22px 0 26px;">
-                <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Acompanhe os outros nomes da disputa num espaço próprio — e como a opinião reagiu.</li>
-                <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Cada notícia que toca as suas causas, destacada para você.</li>
-                <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Disputa a região? Uma leitura só, cobrindo todas as suas cidades.</li>
-              </ul>
+              <p class="pq-pain">A cidade fala das suas <strong>causas</strong> o dia todo — não só quando citam o seu nome. Você escolhe os temas que te movem e acompanha o <strong>termômetro de satisfação de cada um</strong> — como as secretarias de uma prefeitura, só que seus. E os critérios são seus: <strong>você define o que é favorável sob a sua ótica</strong>. Os outros nomes da disputa num espaço próprio, e quantas cidades o seu mandato precisar.</p>
               <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
             </div>
-            <div class="prod-mock" role="img" aria-label="Prévia da Capa de Campanha — briefing do mandato">
-              <div class="mock-bar">
-                <div>
-                  <div class="mock-bar-name">Capa de Campanha</div>
-                  <div class="mock-bar-date">Qua, 11 Jun 2026 &nbsp;·&nbsp; Cachoeirinha + Gravataí</div>
-                </div>
-                <div class="mock-live" title="Serviço ativo"></div>
-              </div>
-              <div class="mock-body">
-                <div>
-                  <div class="mock-sec-hd">⚡ Manchete do dia</div>
-                  <div class="mock-manchete">Reorganização do transporte metropolitano domina o debate na sua base.</div>
-                  <div class="mock-dek">O tema mobilidade concentra as menções na região — com forte reação nos bairros que você atende.</div>
-                </div>
-                <div>
-                  <div class="mock-sec-hd">📋 O resumo do período</div>
-                  <div class="mock-resumo"><b>Na imprensa:</b> portais regionais repercutem o debate sobre as linhas metropolitanas.</div>
-                  <div class="mock-resumo"><b>Nas redes:</b> moradores cobram melhorias e marcam os nomes da disputa.</div>
-                </div>
-                <div>
-                  <div class="mock-sec-hd">🔭 Na disputa</div>
-                  <div class="mock-card">
-                    <div class="mock-card-hd">Liderança da região anuncia emenda para a saúde</div>
-                    <div class="mock-meta">
-                      <span class="mock-pill">📍 Gravataí</span>
-                      <span class="mock-pill">🎯 Saúde</span>
-                    </div>
-                    <div class="mock-line"><b>🗣️ Voz do Povo:</b> repercussão positiva, com cobrança por mais investimento.</div>
-                    <div class="mock-radar">🎯 Radar IA · 909 visualizações · 73 curtidas &nbsp;—&nbsp; Fonte: portal regional</div>
-                  </div>
-                </div>
-                <div>
-                  <div class="mock-sec-hd">🎯 Causas em destaque</div>
-                  <div class="mock-secs">
-                    <span class="mock-sec-chip">Saúde</span>
-                    <span class="mock-sec-chip">Educação</span>
-                    <span class="mock-sec-chip">Mobilidade</span>
-                    <span class="mock-sec-chip">Segurança</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ul class="pq-uselist">
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Os temas e causas que te movem, monitorados o dia todo — mesmo quando não citam o seu nome.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> O termômetro de satisfação de cada causa, com a evolução no tempo.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Os outros nomes da disputa num espaço próprio — acompanhados sem se misturar ao seu.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Seus critérios: você define o que é favorável sob a sua ótica.</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Quantas cidades o seu mandato precisar, num só lugar.</li>
+            </ul>
           </div>
         </div>
 
         <div class="pq-panel" id="pq-ag" role="tabpanel" hidden>
           <div class="pq-panel-grid">
             <div>
-              <h3>Para agências de comunicação e política</h3>
+              <h3>Um motor, várias leituras sob medida.</h3>
               <p class="pq-who"><strong>Agências que atendem governos e campanhas</strong> e querem oferecer inteligência hiperlocal aos seus clientes.</p>
-              <p class="pq-pain">Você precisa atender vários clientes — institucionais e políticos — sem retrabalho, cada um do seu jeito.</p>
+              <p class="pq-pain">Cada cliente com o seu ambiente, as suas cidades e os seus critérios — <strong>até critérios opostos na mesma cidade</strong>, cada um com a sua leitura, sem retrabalho. Institucional e campanha no mesmo fornecedor, dentro do seu pacote.</p>
               <a href="#contato" class="btn btn-primary">Pedir apresentação</a>
             </div>
             <ul class="pq-uselist">
@@ -1120,19 +1205,20 @@
               <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#EEF2FF"/><path d="M5 8l2 2 4-4" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Um fornecedor cobrindo institucional e campanha.</li>
             </ul>
           </div>
+          <p class="pq-note">Institucional e campanha correm em ambientes separados, sob o mesmo contrato.</p>
         </div>
       </div>
       <p class="pq-foot">Em todos os casos, quem abre o relatório é a assessoria — e a liderança recebe só o essencial.</p>
     </div>
   </section>
 
-  <!-- ══════════════════ 7 — FEITO SOB MEDIDA ══════════════════ -->
-  <section class="sec-sob" id="sob-medida" data-screen-label="Feito sob medida">
+  <!-- ══════════════════ 14 — SERVIÇO GERENCIADO ═══════════════ -->
+  <section class="sec-servico" id="servico" data-screen-label="Serviço gerenciado">
     <div class="container">
       <div class="sec-hd">
-        <div class="eyebrow">Feito sob medida</div>
+        <div class="eyebrow">Serviço gerenciado</div>
         <h2>Não é um app self-service. É um serviço gerenciado.</h2>
-        <p>Fontes escolhidas a dedo, critérios calibrados com você e tudo organizado pelo que importa para o seu perfil. Você não configura nada — a nossa equipe cuida, da implantação ao suporte.</p>
+        <p class="sec-lead">Sistema de prateleira não conhece a sua cidade nem os seus critérios. A implantação existe para isso: seus temas, suas fontes e o seu jeito de ler a cidade, construídos junto com você.</p>
       </div>
       <div class="impl-bar" role="list" aria-label="Etapas de implantação">
         <div class="impl-step" role="listitem">
@@ -1142,29 +1228,53 @@
         </div>
         <div class="impl-step" role="listitem">
           <div class="impl-n">Passo 2</div>
-          <h3>Calibramos o seu editorial</h3>
-          <p>A IA aprende o que é notícia para você.</p>
+          <h3>Calibramos o seu critério com você</h3>
+          <p>A IA aprende o que é notícia — e o que é sentimento — para você.</p>
         </div>
         <div class="impl-step" role="listitem">
           <div class="impl-n">Passo 3</div>
-          <h3>Validamos antes de entregar</h3>
+          <h3>Validamos junto antes de ligar</h3>
           <p>Nenhum cliente recebe sem passagem editorial.</p>
         </div>
         <div class="impl-step" role="listitem">
           <div class="impl-n">Passo 4</div>
-          <h3>Suporte contínuo</h3>
+          <h3>Acompanhamos e ajustamos sempre</h3>
           <p>Mudanças de fontes e critérios quando precisar.</p>
         </div>
       </div>
+      <p class="servico-fecho">Você não vai configurar nada sozinho num painel em branco. A gente monta, você aprova.</p>
     </div>
   </section>
 
-  <!-- ══════════════════ 8 — POR QUE CONFIAR ══════════════════ -->
-  <section class="sec-conf" id="confianca" data-screen-label="Por que confiar">
+  <!-- ══════════════════ 15 — CONFIANÇA ═════════════════════════ -->
+  <section class="sec-conf" id="confianca" data-screen-label="Confiança">
     <div class="container">
       <div class="sec-hd">
-        <div class="eyebrow">Por que confiar</div>
+        <div class="eyebrow">Confiança</div>
         <h2>Transparência e segurança em primeiro lugar.</h2>
+      </div>
+      <div class="trust-grid" style="margin-bottom:44px;">
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 11l2.5 2.5 5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Coletamos a cidade inteira. Sem lado.</h3>
+          <p>Mapeamos todas as fontes do município — governo e oposição, mídia e rua. A coleta é da cidade, neutra. <strong>Você escolhe quais fontes acompanhar mais de perto.</strong></p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4C6 4 2.7 8.5 2 11c.7 2.5 4 7 9 7s8.3-4.5 9-7c-.7-2.5-4-7-9-7z" stroke="currentColor" stroke-width="1.7"/><circle cx="11" cy="11" r="2.6" stroke="currentColor" stroke-width="1.7"/></svg>
+          </div>
+          <h3>Só o que é público.</h3>
+          <p>Trabalhamos exclusivamente com fontes públicas. <strong>Perfil privado não é coletado</strong> — nem entra na nossa base.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M7 9V7a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Medimos o clima, não as pessoas.</h3>
+          <p>Dos comentários, a IA lê tudo e devolve um resumo e um sentimento <strong>agregados</strong>. <strong>Não guardamos quem comentou.</strong> Medimos a temperatura da cidade — não vigiamos pessoas.</p>
+        </div>
       </div>
       <div class="lgpd-band">
         <div class="lgpd-item">
@@ -1177,46 +1287,20 @@
         </div>
         <div class="lgpd-item">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="9" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M7 9V7a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-          <div><h3>Sem rastreamento</h3><p>Este site não usa cookies de rastreamento. Privacidade desde a porta.</p></div>
+          <div><h3>Sem rastreamento de indivíduos</h3><p>Nenhum nome de cidadão, nenhum perfil individual armazenado.</p></div>
         </div>
       </div>
-      <div class="trust-grid">
-        <div class="trust-item">
-          <div class="trust-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 11l2.5 2.5 5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Sem lado</h3>
-          <p>Tecnologia neutra. Entregamos o que está sendo dito, com a fonte sempre citada, sem viés partidário.</p>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="4" y="2" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 7h6M8 11h6M8 15h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-          </div>
-          <h3>Inteligência auditável</h3>
-          <p>Cada item entregue tem um porquê rastreável — não é caixa-preta.</p>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 20h16M5 20V10M17 20V10M11 20V10M2 10l9-7 9 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Feita para o setor público</h3>
-          <p>Construída do zero para a realidade brasileira do setor público.</p>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C7.7 2 5 4.7 5 8c0 4 6 11 6 11s6-7 6-11c0-3.3-2.7-6-6-6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="11" cy="8" r="2.2" stroke="currentColor" stroke-width="1.7"/></svg>
-          </div>
-          <h3>Cada fonte é da sua cidade</h3>
-          <p>Cachoeirinha existe em três estados. Garantimos que monitoramos a sua — não uma homônima.</p>
-        </div>
+      <div style="margin-top:34px;background:var(--indigo-lt);border:1px solid #dfe3ff;border-radius:var(--r);padding:22px 26px;">
+        <h3 style="font-size:1rem;margin-bottom:6px;">Cada cliente no seu próprio ambiente.</h3>
+        <p style="font-size:.95rem;color:#374151;line-height:1.55;margin:0;">Critérios, fontes e configurações não são compartilhados entre clientes — nem entre dois clientes da mesma cidade. O que você define é só seu.</p>
       </div>
-      <div style="margin-top:40px;text-align:center;max-width:780px;margin-left:auto;margin-right:auto;font-size:1.06rem;color:#374151;line-height:1.6;">
+      <div class="conf-fecho">
         <strong style="color:var(--ink);">Diagnóstico, não conteúdo.</strong> Nós mostramos o que a cidade está dizendo — você decide o que fazer. Não criamos conteúdo, não publicamos e não disparamos mensagens em seu nome.
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ 9 — FAQ ══════════════════════════════ -->
+  <!-- ══════════════════ 16 — FAQ ══════════════════════════════ -->
   <section class="sec-faq" id="faq" data-screen-label="FAQ">
     <div class="container">
       <div class="sec-hd">
@@ -1273,18 +1357,46 @@
           </button>
           <div class="faq-a">Sim. O cancelamento segue um prazo de aviso previsto em contrato, definido em comum acordo com cada cliente.</div>
         </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O que é social listening?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">É o nome de mercado para o monitoramento de redes sociais: acompanhar e interpretar as conversas públicas para entender volume, tom e tendências. No nosso caso, com uma diferença: não olhamos só quem citou o seu nome — olhamos os temas e serviços da sua cidade.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Isso é uma pesquisa de satisfação?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">Não — e essa é a diferença. Não somos um instituto de pesquisa: não entrevistamos ninguém, não aplicamos questionário, não há amostra nem margem de erro. O índice de satisfação da cidade é estimado do que a população já publica e comenta espontaneamente em fontes públicas, todos os dias. É outro olhar: contínuo, do comportamento real — não de respostas a um formulário.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como o índice de satisfação é calculado?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">A partir do que a cidade publica e comenta em fontes públicas. Cada item recebe um sentimento e é ponderado pelo engajamento real — um post com mil curtidas pesa mais que um com uma — e essas notas se agregam por tema e por secretaria, numa escala de 0 a 100. Nada é caixa-preta: todo número pode ser aberto até os itens que o compõem, com data e fonte. Numa secretaria de pouco volume, a nota reflete os poucos itens que existem — e isso fica visível, nunca inflado.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Vocês monitoram pessoas?
+            <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-a">Não. Monitoramos assuntos em fontes públicas. Dos comentários guardamos só o resumo e o sentimento agregados — nunca quem escreveu. Não perfilamos cidadãos, jornalistas ou opositores.</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ 10 — CTA FINAL + FORMULÁRIO ══════════ -->
+  <!-- ══════════════════ 17 — CTA FINAL + FORMULÁRIO ══════════ -->
   <section class="sec-cta" id="contato" data-screen-label="Contato">
     <div class="container">
       <div class="cta-grid">
         <div class="cta-text">
           <div class="eyebrow cta-eyebrow">Apresentação</div>
           <h2>Peça uma apresentação.</h2>
-          <p>Não vendemos pacote de prateleira. O investimento varia conforme o tamanho do trabalho — quantas fontes e cidades, com que frequência e quais serviços. Nossa equipe entra em contato, apresenta o produto e levanta o que você precisa.</p>
+          <p>Não temos pacote de prateleira. Conte a sua cidade e o que você precisa acompanhar — a gente monta e mostra funcionando.</p>
           <div class="cta-notes">
             <div class="cta-note">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="6.5" fill="rgba(255,255,255,.12)"/><path d="M4.5 7.5l2 2 4-4" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1319,7 +1431,7 @@
             </div>
             <div class="form-group">
               <label for="organizacao">Organização / Cidade *</label>
-              <input type="text" id="organizacao" name="organizacao" placeholder="Ex.: Prefeitura de Cachoeirinha, RS" required>
+              <input type="text" id="organizacao" name="organizacao" placeholder="Ex.: Prefeitura de Sua Cidade, RS" required>
             </div>
             <div class="form-group">
               <label for="perfil">Cargo / Perfil *</label>
@@ -1338,7 +1450,7 @@
               </label>
               <textarea id="mensagem" name="mensagem" placeholder="Descreva brevemente sua necessidade…"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-submit">Pedir apresentação</button>
+            <button type="submit" class="btn btn-primary btn-submit">Agendar demonstração da sua cidade</button>
             <div class="form-feedback" id="formFeedback" role="alert" aria-live="polite"></div>
           </form>
         </div>
@@ -1358,19 +1470,20 @@
           <p class="foot-tagline">Inteligência hiperlocal para o setor público</p>
         </div>
         <div class="foot-col">
-          <h4>Produto</h4>
+          <h4>Plataforma</h4>
           <ul>
-            <li><a href="#diferenciais">Diferenciais</a></li>
-            <li><a href="#produto">O que entregamos</a></li>
-            <li><a href="#como-funciona">Como funciona</a></li>
-            <li><a href="#sob-medida">Feito sob medida</a></li>
+            <li><a href="#clipping">Clipping</a></li>
+            <li><a href="#panorama">Panorama do Dia</a></li>
+            <li><a href="#painel">Painel de Monitoramento</a></li>
+            <li><a href="#fontes">Fontes</a></li>
           </ul>
         </div>
         <div class="foot-col">
           <h4>Empresa</h4>
           <ul>
+            <li><a href="#como-funciona">Como funciona</a></li>
             <li><a href="#para-quem">Para quem</a></li>
-            <li><a href="#confianca">Por que confiar</a></li>
+            <li><a href="#confianca">Confiança</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contato">Pedir apresentação</a></li>
           </ul>
@@ -1388,7 +1501,7 @@
     var WEBHOOK_URL   = 'https://n8n.ataraxiasistemas.com.br/webhook/lead-site';
 
     /* ─── A11y: SVGs decorativos e indicadores → aria-hidden ─── */
-    document.querySelectorAll('.lgpd-item svg, .pf-ic svg, .cta-note svg, .pq-ic svg, .mock-live').forEach(function (el) {
+    document.querySelectorAll('.lgpd-item svg, .pt-ic svg, .cta-note svg, .pq-ic svg, .mock-live').forEach(function (el) {
       el.setAttribute('aria-hidden', 'true');
     });
 
@@ -1396,24 +1509,61 @@
     var burger    = document.getElementById('navBurger');
     var mobileNav = document.getElementById('navMobile');
 
-    burger.addEventListener('click', function () {
-      var open = mobileNav.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', String(open));
+    var navScrollBase = 0;   /* scrollY no instante em que o menu abriu */
+
+    function fecharMenu() {
+      mobileNav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    function abrirMenu() {
+      navScrollBase = window.scrollY;
+      mobileNav.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+    }
+
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (mobileNav.classList.contains('is-open')) { fecharMenu(); } else { abrirMenu(); }
     });
 
-    mobileNav.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        mobileNav.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
+    /* Link do menu: fecha PRIMEIRO, mede DEPOIS.
+       Fechar o menu encolhe a página ~437px — se o browser calcular o destino
+       com o menu ainda aberto, a âncora erra o alvo (ou nem sai do lugar). */
+    mobileNav.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var alvo = document.querySelector(a.getAttribute('href'));
+        if (!alvo) { fecharMenu(); return; }
+        e.preventDefault();
+        fecharMenu();
+        /* espera o reflow do menu fechado antes de calcular a posição */
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            var y = alvo.getBoundingClientRect().top + window.scrollY - 76;
+            window.scrollTo({ top: y < 0 ? 0 : y, behavior: 'smooth' });
+            history.replaceState(null, '', a.getAttribute('href'));
+          });
+        });
       });
     });
 
+    /* Fecha só em rolagem intencional (>40px).
+       A barra de endereço do navegador móvel dispara 'scroll' ao reaparecer —
+       com limiar 0 o menu fechava no mesmo toque que o abria. */
     window.addEventListener('scroll', function () {
-      if (mobileNav.classList.contains('is-open')) {
-        mobileNav.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-      }
+      if (!mobileNav.classList.contains('is-open')) return;
+      if (Math.abs(window.scrollY - navScrollBase) > 40) fecharMenu();
     }, { passive: true });
+
+    /* Fecha ao tocar fora e com Esc */
+    document.addEventListener('click', function (e) {
+      if (!mobileNav.classList.contains('is-open')) return;
+      if (!mobileNav.contains(e.target)) fecharMenu();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
+        fecharMenu(); burger.focus();
+      }
+    });
 
     /* ─── FAQ ACCORDION ──────────────────────────────────────── */
     document.querySelectorAll('.faq-q').forEach(function (btn) {
@@ -1433,28 +1583,33 @@
       });
     });
 
-    /* ─── PARA QUEM — abas (padrão APG Tabs: clique + teclado + ARIA) ─── */
-    (function () {
-      var tabs = Array.prototype.slice.call(document.querySelectorAll('.pq-tabbtn'));
+    /* ─── Tabs genérico (padrão APG: clique + teclado + ARIA) ── */
+    function wireTabs(btnSel, panelPrefix, dataAttr) {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(btnSel));
       function activate(btn, focus) {
-        var key = btn.getAttribute('data-pq');
+        var key = btn.getAttribute(dataAttr);
         tabs.forEach(function (b) {
           var on = (b === btn);
           b.classList.toggle('is-active', on);
           b.setAttribute('aria-selected', String(on));
           b.setAttribute('tabindex', on ? '0' : '-1');
         });
-        document.querySelectorAll('.pq-panel').forEach(function (p) {
-          var on = (p.id === 'pq-' + key);
-          p.classList.toggle('is-active', on);
-          if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+        document.querySelectorAll('#' + panelPrefix + '-panels-marker').forEach(function(){});
+        tabs.forEach(function (b) {
+          var k = b.getAttribute(dataAttr);
+          var panel = document.getElementById(panelPrefix + '-' + k);
+          if (panel) {
+            var on = (k === key);
+            panel.classList.toggle('is-active', on);
+            if (on) { panel.removeAttribute('hidden'); } else { panel.setAttribute('hidden', ''); }
+          }
         });
         if (focus) { btn.focus(); }
       }
       tabs.forEach(function (btn, i) {
-        var key = btn.getAttribute('data-pq');
-        var panel = document.getElementById('pq-' + key);
-        btn.id = 'tab-' + key;
+        var key = btn.getAttribute(dataAttr);
+        var panel = document.getElementById(panelPrefix + '-' + key);
+        btn.id = panelPrefix + '-tab-' + key;
         btn.setAttribute('tabindex', btn.classList.contains('is-active') ? '0' : '-1');
         if (panel) {
           btn.setAttribute('aria-controls', panel.id);
@@ -1473,7 +1628,9 @@
           activate(t, true);
         });
       });
-    })();
+    }
+    wireTabs('.pq-tabbtn', 'pq', 'data-pq');
+    wireTabs('.ft-tabbtn', 'ft', 'data-ft');
 
     /* ─── FORMULÁRIO ─────────────────────────────────────────── */
     var leadForm   = document.getElementById('leadForm');
@@ -1516,7 +1673,7 @@
 
       var submitBtn = leadForm.querySelector('.btn-submit');
       submitBtn.disabled   = true;
-      submitBtn.textContent = 'Enviando\u2026';
+      submitBtn.textContent = 'Enviando…';
       feedbackEl.className  = 'form-feedback';
 
       fetch(WEBHOOK_URL, {
@@ -1530,7 +1687,7 @@
           leadForm.reset();
           return;
         }
-        /* Erro de valida\u00e7\u00e3o (4xx): mostra a mensagem espec\u00edfica do servidor */
+        /* Erro de validação (4xx): mostra a mensagem específica do servidor */
         if (res.status >= 400 && res.status < 500) {
           return res.json().then(function (body) {
             showFeedback('is-err', (body && body.message) ? body.message
@@ -1540,11 +1697,11 @@
         throw new Error('status ' + res.status);
       })
       .catch(function () {
-        showFeedback('is-err', 'N\u00e3o foi poss\u00edvel enviar. Tente novamente em instantes.');
+        showFeedback('is-err', 'Não foi possível enviar. Tente novamente em instantes.');
       })
       .finally(function () {
         submitBtn.disabled    = false;
-        submitBtn.textContent = 'Quero uma apresenta\u00e7\u00e3o';
+        submitBtn.textContent = 'Agendar demonstração da sua cidade';
       });
     });
 
