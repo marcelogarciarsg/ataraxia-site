@@ -521,7 +521,9 @@
       padding-right: 36px;
     }
     .hp-wrap { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
-    .btn-submit { width: 100%; justify-content: center; padding: 14px; font-size: 15px; margin-top: 4px; border-radius: 9px; }
+    /* white-space: normal anula o nowrap de .btn — em tela estreita o texto
+       quebra dentro do botão em vez de vazar para fora dele. */
+    .btn-submit { width: 100%; justify-content: center; padding: 14px; font-size: 15px; margin-top: 4px; border-radius: 9px; white-space: normal; }
     .form-feedback {
       text-align: center; padding: 12px; border-radius: 8px;
       font-size: 13.5px; font-weight: 500; margin-top: 14px; display: none;
@@ -1455,7 +1457,7 @@
               </label>
               <textarea id="mensagem" name="mensagem" placeholder="Descreva brevemente sua necessidade…"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-submit">Agendar demonstração da sua cidade</button>
+            <button type="submit" class="btn btn-primary btn-submit">Agendar demonstração</button>
             <div class="form-feedback" id="formFeedback" role="alert" aria-live="polite"></div>
           </form>
         </div>
@@ -1693,7 +1695,7 @@
       })
       .then(function (res) {
         if (res.ok) {
-          showFeedback('is-ok', 'Recebido! Nossa equipe entra em contato.');
+          showFeedback('is-ok', 'Recebido! Entraremos em contato em breve.');
           leadForm.reset();
           return;
         }
